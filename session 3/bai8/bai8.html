@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đăng Kí</title>
+    <style>
+       form {
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 5px;
+            vertical-align: top;
+        }
+        input, select, textarea {
+            width: 300px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        textarea {
+            height: 50px;
+            resize: vertical;
+        }
+        input[type="radio"] {
+            width: auto;
+            margin-left: 10px;
+        }
+        .radio-group label {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="GET">
+        <label for="Họ và tên">Họ và tên</label>
+        <input type="text" id="Họ và tên" name="Họ và tên" required><br>
+
+        <label for="Ngày sinh">Ngày sinh</label>
+        <input type="date" id="Ngày sinh" name="Ngày sinh" required><br>
+
+        <label for="Giới tính">Giới tính</label>
+        <span>
+            <input type="radio" id="Nam" name="Giới tính" value="Nam">
+            <label for="Nam">Nam</label>
+        
+            <input type="radio" id="Nữ" name="Giới tính" value="Nữ">
+            <label for="Nữ">Nữ</label>
+        </span>
+        <br>
+        
+
+        <label for="Số căn cước công dân">Số căn cước công dân</label>
+        <input type="number" id="Số căn cước công dân" name="Số căn cước công dân" pattern="\d{12}" minlength="12" maxlength="12" required><br>
+
+        <label for="Ngày cấp">Ngày cấp</label>
+        <input type="date" id="Ngày cấp" name="Ngày cấp" required><br>
+
+        <label for="Nơi cấp">Nơi cấp</label>
+        <input type="text" id="Nơi cấp" name="Nơi cấp" required><br>
+
+        <label for="Số điện thoại">Số điện thoại</label>
+        <input type="tel" id="Số điện thoại" name="Số điện thoại" pattern="\d{10}" minlength="10" maxlength="10" required><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="địa chỉ">Địa chỉ thường trú:</label>
+        <textarea type="textarea" id="địa chỉ" name="địa chỉ" rows="3" cols="50" required></textarea><br>
+        
+        <label for="địa chỉ tạm trú">Địa chỉ tạm trú</label>
+        <textarea type="textarea" id="địa chỉ tạm trú" name="địa chỉ tạm trú" rows="3" cols="50" required></textarea><br>
+
+        <label for="loại căn cước công dân">Loại căn cước công dân</label>
+        <select id="loại căn cước công dân" name="loại căn cước công dân" required>
+            <option value="Chứng minh nhân dân">Chứng minh nhân dân</option>
+            <option value="Hộ chiếu">Hộ chiếu</option>
+            <option value="Thẻ căn cước">Thẻ căn cước</option>
+        </select><br>
+
+        <label for="Dân tộc">Dân tộc:</label>
+        <input type="text" id="Dân tộc" name="Dân tộc" required><br>
+
+        <label for="Tôn giáo">Tôn giáo</label>
+        <input type="text" id="Tôn giáo" name="Tôn giáo" required><br>
+
+        <label for="quốc tịch">Quốc tịch:</label>
+        <input type="text" id="quốc tịch" name="quốc tịch" value="Việt Nam" readonly><br>
+
+        <label for="Họ tên cha mẹ">Họ tên cha/mẹ:</label>
+        <input type="text" id="Họ tên cha mẹ" name="Họ tên cha mẹ" required><br>
+
+        <label for="Số CMND">Số CMND/CCCD của cha/mẹ:</label>
+        <input type="number" id="Số CMND" name="Số CMND/CCCD của cha/mẹ" pattern="\d{12}" minlength="12" maxlength="12" required><br>
+    
+        <label for="city">Chọn tỉnh/thành phố:</label>
+<select id="city" name="city" required>
+    <option value="" disabled selected>-- Chọn tỉnh/thành phố --</option>
+    <option value="Hanoi">Hà Nội</option>
+    <option value="HCM">TP. Hồ Chí Minh</option>
+    <option value="Danang">Đà Nẵng</option>
+    <option value="Haiphong">Hải Phòng</option>
+    <option value="Cantho">Cần Thơ</option>
+    <option value="Hue">Huế</option>
+    <option value="Quangninh">Quảng Ninh</option>
+    <option value="Thanhhoa">Thanh Hóa</option>
+    <option value="Nghean">Nghệ An</option>
+    <option value="Binhduong">Bình Dương</option>
+    <option value="Dongnai">Đồng Nai</option>
+    <option value="BariaVungtau">Bà Rịa - Vũng Tàu</option>
+</select>
+<br>
+<input type="submit" value="Gửi thông tin">
+
+    </form>
+</body>
+</html>
