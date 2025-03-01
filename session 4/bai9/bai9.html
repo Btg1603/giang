@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+        th, td {
+        padding: 8px;
+        text-align: left;
+        vertical-align: top;
+        }
+        caption {
+        caption-side: left;
+        text-align: left;
+        margin-bottom: 8px;
+        }
+    html, body {
+      margin: 0; 
+      padding: 0;
+     
+    }
+    .vertical-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 46%;               /* 50% bề rộng cửa sổ */
+      width: 2px;             /* Độ dày của đường kẻ */
+      background-color: black; /* Màu đen cho đường kẻ */
+    }
+    .content-left {
+      width: 46%;
+    }
+    table {
+      max-width: 46%;
+      border-collapse: collapse; 
+    }
+    .wrapper {
+      position: relative;
+      min-height: 100vh; /* Ít nhất bằng chiều cao của viewport */
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+           
+    <div class="vertical-line"></div>
+ 
+
+    <div class="content-left">
+        <thead><h1>CatPhotoApp</h1></thead>
+        <thead><h2>Cat Photos</h2></thead>
+        <tbody>
+        <p>Everyone loves <a href="">cute cats</a> online!</p>
+        <p>See more <a href="">cat photos</a> in our gallery.</p>
+        <img src="https://media.ngoisao.vn/resize_580/news/2013/11/27/49/4_jpg9.jpg" alt="hình ảnh" style="width: 200px; height: 200px;">
+        </tbody>
+    <thead>
+        <h2>Cat Lists</h2>
+        <h3>Things cats love:</h3>
+    </thead>
+    <tbody>
+        <ul>
+            <li>cat nip</li>
+            <li>laser pointers</li>
+            <li>lasagna</li>
+        </ul>
+       <figure>
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSczWGZ8pwxWGjEkKAjvCgGymH5ElSmXxD7IbhsWeWcnO2XlC7Q" alt="hình ảnh" style="width: 200px; height: 200px;">
+        <figcaption>Cats <em>love</em> lasagna</figcaption>
+       </figure>
+        <h3>Top 3 things cats hate:</h3>
+        <ol>
+            <li>flea treatment</li>
+            <li>thunder</li>
+            <li>other cats</li>
+        </ol>
+        <figure>
+            <img src="https://www.cleanipedia.com/images/5iwkm8ckyw6v/1w4Dii4NvaeRjUNM97i8Lv/699035b79592123f8c87318c0cc36df3/cGV4ZWxzLXBpeGFiYXktNDUxNzBfXzJfLmpwZw/1200w/n%C4%83m-ch%C3%BA-m%C3%A8o-con-%C4%91ang-ng%E1%BB%93i-tr%C3%AAn-c%E1%BB%8F..jpg" alt="hình ảnh" style="width: 200px; height: 200px;">
+            <figcaption>Cats <b>hate</b> other cats</figcaption>
+        </figure>
+        <table border="1">
+            <thead>
+                <caption>Cat Breed</caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Breed</th>
+                    <th>Loccation of origin</th>
+                    <th>Type</th>
+                    <th>Body type</th>
+                    <th>Coat type and length</th>
+                    <th>Coat pattern</th>
+                    <th>Image</th>
+                </tr>
+                <tr>
+                    <td>Abyssinian</td>
+                    <td>Unspecified, but somewhere in Afro-Asia, likely Ethiopia</td>
+                    <td>Natural</td>
+                    <td>Semi-foreign</td>
+                    <td>Ticked (tabby)</td>
+                    <td>Ticked coat</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Gustav_chocolate.jpg/640px-Gustav_chocolate.jpg" alt="Abyssinian cat" width="100"></td>
+                  </tr>
+                  <tr>
+                    <td>Aegean</td>
+                    <td>Greece</td>
+                    <td>Natural</td>
+                    <td>Semi-foreign</td>
+                    <td>Medium-long</td>
+                    <td>Multi-color</td>
+                    <td><img src="https://rareandexoticcatbreedslist.weebly.com/uploads/1/3/4/1/13414483/7564517_orig.jpg" alt="Aegean cat" width="100"></td>
+                  </tr>
+                  <tr>
+                    <td>American Bobtail</td>
+                    <td>United States</td>
+                    <td>Mutation</td>
+                    <td>Shortened tail</td>
+                    <td>Semi-long</td>
+                    <td>Varied</td>
+                    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShtj6kzrtKUKPeibL_Gz_rpY2E4vYotIweBw&s" alt="American Bobtail cat" width="100"></td>
+                  </tr>
+                  <tr>
+                    <td>American Curl</td>
+                    <td>United States</td>
+                    <td>Mutation</td>
+                    <td>Distinctive ears</td>
+                    <td>Short or long</td>
+                    <td>Various patterns</td>
+                    <td><img src="https://www.omlet.us/images/cache/1024/682/American-curl-shorthaired-cat-lying-facing-forward.jpg" alt="American Curl cat" width="100"></td>
+                  </tr>
+                  <tr>
+                    <td>American Ringtail</td>
+                    <td>United States</td>
+                    <td>Mutation</td>
+                    <td>Curled tail</td>
+                    <td>Short or medium</td>
+                    <td>Various patterns</td>
+                    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHHaPlfnApW25v7D6yaFsuE3SoHgK4yt7tFg&s" alt="American Ringtail cat" width="100"></td>
+                  </tr>
+                </table>
+                <h1>Cat Form</h1>
+      
+                <form>
+                    <fieldset>
+                      <legend>Is your cat an indoor or outdoor cat?</legend>
+                      <label>
+                        <input type="radio" name="cat_environment" value="indoor" checked />
+                        Indoor
+                      </label>
+                      <label>
+                        <input type="radio" name="cat_environment" value="outdoor" />
+                        Outdoor
+                      </label>
+                    </fieldset>
+                    
+                    <!-- Hỏi tính cách của mèo -->
+                     <fieldset>
+                        <legend>What's your cat's personality?</legend>
+                        <label>
+                            <input type="checkbox" name="cat_personality" value="loving" checked />
+                            Loving
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cat_personality" value="lazy" />
+                            Lazy
+                        </label>
+                        <label>
+                            <input type="checkbox" name="cat_personality" value="energetic" />
+                            Energetic
+                        </label>
+                     </fieldset>
+                   
+                    
+                <br>
+                    <input type="text" placeholder="cat photo URL:" name="cat_photo_url" />
+                
+                    <input type="submit" value="Submit" />
+                  </form>
+                  
+                  <!-- Ghi chú bản quyền -->
+                  <p>No Copyright -
+                    <a href="http://rikkei.edu.vn" target="_blank">rikkei.edu.vn</a>
+                  </p>
+    </tbody>
+    </div>
+   
+</body>
+</html>

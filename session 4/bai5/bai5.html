@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: separate;/*tách biệt viền*/
+            border-spacing: 5px;
+            /*khoảng cách giữa các ô*/
+            margin: 20px auto;
+            /*canh giữa trang, thêm khoảng trống xung quanh*/
+            border: 2px solid black;
+            /*viền ngoài cùng*/
+        }
+        th, td{
+            border: 1px solid black;
+            /*viền từng ô*/
+            padding: 8px 12px;
+            /*khoảng trống bên trong ô*/
+            text-align: center;
+            /*canh chữ giữa*/
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Tháng</th>
+            <th colspan="2">Tỷ lệ đơn hàng theo tháng</th>
+        </tr>
+        <tr>
+            <td>Nguyễn Văn A</td>
+            <td>15% hoàn thành</td>
+            <td>85% hủy hàng</td>
+        </tr>
+        <tr>
+            <td>Phan Văn B</td>
+            <td>25% hoàn thành</td>
+            <td>75% hủy hàng</td>
+        </tr>
+        <tr>
+            <td>Nguyễn Thị C</td>
+            <td>50% hoàn thành</td>
+            <td>50% hủy hàng</td>
+        </tr>
+    </table>
+</body>
+</html>

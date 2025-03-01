@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Chỉnh bảng không gộp viền vào nhau */
+        table {
+          border-collapse: separate; /* Tách biệt viền */
+          border-spacing: 5px;       /* Khoảng cách giữa các ô */
+          margin: 20px auto;        /* Canh giữa trang, thêm khoảng trống xung quanh */
+          border: 2px solid black;  /* Viền ngoài cùng */
+        }
+    
+        /* Thiết lập viền cho các ô (th, td) */
+        th, td {
+          border: 1px solid black; /* Viền từng ô */
+          padding: 8px 12px;       /* Khoảng trống bên trong ô */
+          text-align: center;      /* Canh chữ giữa */
+        }
+    
+        /* Tô đậm hàng tiêu đề */
+        th {
+          font-weight: bold;
+          background-color: #f0f0f0; /* Màu nền nhạt cho tiêu đề */
+        }
+      </style>
+</head>
+<body>
+    <table >
+        <tr>
+            <th>Tên</th>
+            <th>Tuổi</th>
+            <th>Nghề nghiệp</th>
+        </tr>
+        <tr>
+            <td>An</td>
+            <td>25</td>
+            <td>Lập trình viên</td>
+        </tr>
+        <tr>
+            <td>Bảo</td>
+            <td>30</td>
+            <td>Kỹ sư xây dựng</td>
+        </tr>
+        <tr>
+            <td>Chi</td>
+            <td>22</td>
+            <td>Sinh viên</td>
+        </tr>
+    </table>
+</body>
+</html>
