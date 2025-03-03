@@ -1,0 +1,13 @@
+h1{
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+figure{
+    margin: 0 auto;
+    text-align: center;
+    width :250px;
+}
