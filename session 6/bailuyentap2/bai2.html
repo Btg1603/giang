@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:100hv;
+            background-color: rgb(216, 216, 216);
+        }
+        .form-container {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Đăng ký</h2>
+        <div>
+            <form action="" method="POST">
+                <label for="tên">Tên:</label><br>
+                <input type="text" name="Tên" id="tên"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="Email" id="email"><br>
+                <label for="pass">Mật khẩu</label><br>
+                <input type="password" id="pass" name="Mật khẩu"><br><br>
+                <input type="submit" class="btn" value="Đăng ký">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
