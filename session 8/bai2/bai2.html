@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: purple;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            color: white;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 20px 0 25px 0;
+            margin:auto;
+            margin-top: 5px;
+            border: 1px solid white;
+            border-radius: 4px;
+            background: transparent;
+            color: white;
+        }
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+        button {
+            background: white;
+            color: rgb(70, 69, 69);
+            padding: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 40%;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        button:hover {
+            background: #ccc;
+        }
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+        .row div {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+
+            <div class="row">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+
+            <br>
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+            <br><br>
+            <button type="submit">SEND MESSAGE</button>
+        </form>
+    </div>
+</body>
+</html>
