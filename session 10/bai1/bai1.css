@@ -1,0 +1,28 @@
+.container{
+    font-size: 20px;
+    background-color: rgb(210, 209, 209);
+    width: 100%;
+    height:100px;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.text{
+    width:800px;
+    display:flex;
+    justify-content:space-between;
+}
+.title{
+    font-family:'Dancing Script', cursive ;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.search button{
+    color:white;
+    background-color: rgb(113, 113, 113);
+    padding:15px;
+    width:100px;
+    border-radius: 5px;
+}

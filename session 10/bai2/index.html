@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            .main{
+            padding:3px;
+            background-color: rgb(237, 237, 237);
+            width:1400px;
+            height:500px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            display:flex;
+            width:100%;
+            justify-content: space-between;
+        }
+        img{
+            width:300px;
+            height:300px;
+            border-radius: 4px;
+        }
+        .text{
+            font-size: 30px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #090909 0%, #e6e6e6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding:10px;
+            width:280px;
+            text-align: center;
+        }
+        .t{
+            display:flex;
+            background-color: rgb(226, 226, 226);
+            justify-content: center;
+            border-radius: 4px;
+        }
+        .col1, .col2, .col3, .col4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        }
+        .col2, .col4 {
+        flex-direction: column-reverse;
+        }
+        .title{
+            font-size: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="head">
+            <div class="title">Category</div>
+            <br>
+            <div class="container">
+                <div class="col1">
+                    <div class="t"><div class="text">FOOTBALL</div></div>
+                    <div class="pic"><img src="https://content.twinkl.co.uk/website/uploaded/football-6-1674483025.jpg" alt="hinh anh"></div>  
+                    
+                </div>
+                <div class="col2">
+                    <div class="t"><div class="text">BASKET BALL</div></div>
+                    
+                    <div class="pic"><img src="https://coachdungbasketball.com/media/ve-sinh-bong-ro-dung-cach-3.jpg" alt="hinh anh"></div>
+                </div>
+                <div class="col3">
+                    <div class="t"><div class="text">CAR SPORT</div></div>
+                    
+                    <div class="pic"><img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/gtr/2024/site-simp/overview/pfa/2024-nissan-gt-r-sports-car-light-green-side-profile-view.jpg" alt="hinh anh"></div>
+                </div>
+                <div class="col4">
+                    <div class="t"><div class="text">TABLE TENNIS</div></div>
+                    
+                    <div class="pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFN3pO04I_Lc9pse4oRiwvtAAtovAtt2T08A&s" alt="hinh anh"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
