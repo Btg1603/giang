@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: brown;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo {
+    flex: 1;
+}
+
+#nav {
+    flex: 2;
+    text-align: right;
+}
+
+
+#main, #aside {
+    background-color: brown;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.columns {
+    display: grid;
+    gap: 10px;
+}
+
+.column {
+    background-color: brown;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        grid-template-areas:
+            "header header"
+            "main aside"
+            "columns columns";
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    header {
+        grid-area: header;
+    }
+    
+    #main {
+        grid-area: main;
+    }
+    
+    #aside {
+        grid-area: aside;
+    }
+    
+    .columns {
+        grid-area: columns;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "columns";
+    }
+    
+    header {
+        grid-area: header;
+    }
+    
+    #main {
+        grid-area: main;
+    }
+    
+    #aside {
+        grid-area: aside;
+    }
+    
+    .columns {
+        grid-area: columns;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 767px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main";
+    }
+    
+    header {
+        grid-area: header;
+        flex-direction: column;
+    }
+    
+    #nav {
+        grid-area: nav;
+        text-align: center;
+    }
+    
+    #main {
+        grid-area: main;
+    }
+    
+    #aside {
+        display: none;
+    }
+    
+    .columns {
+        display: none; 
+    }
+}
