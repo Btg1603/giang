@@ -1,0 +1,10 @@
+.card-body {
+    text-align: center;
+}
+.card-body a {
+    width: 100%;
+}
+.title {
+    font-size: 25px;
+    padding-left: 420px;
+}

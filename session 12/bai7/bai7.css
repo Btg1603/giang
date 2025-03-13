@@ -1,0 +1,33 @@
+.card-title {
+    position: absolute;
+    bottom: 60px;
+    left: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.card-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon {
+    background: purple;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+}
+.box {
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 800px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 15px;
+}
