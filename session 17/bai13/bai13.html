@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let soTienGui = parseFloat(prompt("Nhập số tiền gửi (VND):"));
+let soThangGui = parseInt(prompt("Nhập số tháng gửi:"));
+let laiSuatThang = 4.3 / 100 / 12;
+let tienLai = soTienGui * laiSuatThang * soThangGui;
+console.log(`Số tiền lãi nhận được sau ${soThangGui} tháng là: ${tienLai.toFixed(2)} VND`);
+</script>
+</body>
+</html>

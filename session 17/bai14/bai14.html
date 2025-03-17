@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let r = parseFloat(prompt("Nhập bán kính của hình trụ:"));
+let h = parseFloat(prompt("Nhập chiều cao của hình trụ:"));
+const PI = Math.PI;
+
+
+let chuViDay = 2 * PI * r;
+let dienTichXungQuanh = 2 * PI * r * h;
+let dienTichToanPhan = 2 * PI * r * (r + h);
+let theTich = PI * r * r * h;
+
+
+console.log(`Chu vi đáy: ${chuViDay.toFixed(2)}`);
+console.log(`Diện tích xung quanh: ${dienTichXungQuanh.toFixed(2)}`);
+console.log(`Diện tích toàn phần: ${dienTichToanPhan.toFixed(2)}`);
+console.log(`Thể tích hình trụ: ${theTich.toFixed(2)}`);
+</script>
+</body>
+</html>
