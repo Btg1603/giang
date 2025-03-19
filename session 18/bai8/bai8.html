@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra loại tam giác</title>
+</head>
+<body>
+    <script>
+        let canh1 = Number(prompt("Nhập cạnh thứ nhất: "));
+        let canh2 = Number(prompt("Nhập cạnh thứ hai: "));    
+        let canh3 = Number(prompt("Nhập cạnh thứ ba: "));
+
+
+        if (canh1 <= 0 || canh2 <= 0 || canh3 <= 0) {
+            alert("Cạnh của tam giác phải lớn hơn 0!");
+        } 
+
+        else if (canh1 + canh2 > canh3 && canh1 + canh3 > canh2 && canh2 + canh3 > canh1) {
+       
+            if (canh1 === canh2 && canh2 === canh3) {
+                alert("Tam giác đều");
+            } 
+        
+            else if (
+                Math.pow(canh1, 2) + Math.pow(canh2, 2) === Math.pow(canh3, 2) ||
+                Math.pow(canh1, 2) + Math.pow(canh3, 2) === Math.pow(canh2, 2) ||
+                Math.pow(canh2, 2) + Math.pow(canh3, 2) === Math.pow(canh1, 2)
+            ) {
+                alert("Tam giác vuông");
+            }
+      
+            else if (canh1 === canh2 || canh1 === canh3 || canh2 === canh3) {
+                alert("Tam giác cân");
+            } 
+       
+            else {
+                alert("Tam giác thường");
+            }
+        } 
+  
+        else {
+            alert("Đây không phải là tam giác");
+        }
+    </script>
+</body>
+</html>

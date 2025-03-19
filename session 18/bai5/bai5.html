@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let year=parseInt(prompt("Nhập năm cần kiểm tra: "));
+        if(year<1){
+            alert("Mới vào nghề");
+        }else if(year>6){
+            alert("Quản lý");
+        }else{
+            switch(year){
+                case 1: 
+                case 2: 
+                case 3:
+                    alert("Nhân viên có kinh nghiệm");
+                    break;
+                case 4: 
+                case 5: 
+                case 6:
+                    alert("Chuyên viên");
+                    break;
+                default:
+                alert("Dữ liệu không hợp lệ!");
+            }
+        }
+    </script>
+</body>
+</html>
