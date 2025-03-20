@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Nhập một ký tự: ");
+
+if (input.length === 1 && /^[a-zA-Z]$/.test(input)) {
+    alert(`Ký tự ${input} là chữ cái`);
+} else {
+    alert("Không phải chữ cái");
+}
+    </script>
+</body>
+</html>
