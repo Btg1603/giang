@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let char=prommpt("Nhập vào một ký tự: ");
+        let length_char=char.length;
+        let value=prompt("Nhập kí tự bạn muốn tìm kiếm: ");
+         found=false;
+        for (let i=0;i<length_char;i++){
+            if (char[i]==value){
+                found=true;
+                break;
+            }else{
+                found=false;
+                break;
+            }
+        }
+        if(found==true){
+            document.write("Kí tự " + value + " có trong chuỗi " + char);
+        }else{
+            document.write("Kí tự " + value + " không có trong chuỗi " + char);
+        }
+
+        
+    </script>
+</body>
+</html>

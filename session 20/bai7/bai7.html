@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Nhập số lượng số Fibonacci cần hiển thị:"));
+
+if (n <= 0) {
+    console.log("Vui lòng nhập số nguyên dương!");
+} else {
+    let f1 = 0, f2 = 1, fn = 0;
+    let result = "";
+
+    if (n >= 1) result += f1 + " ";
+    if (n >= 2) result += f2 + " ";
+
+    for (let i = 3; i <= n; i++) {
+        fn = f1 + f2;
+        result += fn + " ";
+        f1 = f2;
+        f2 = fn;
+    }
+
+    console.log("Dãy Fibonacci:", result);
+}
+
+    </script>
+</body>
+</html>

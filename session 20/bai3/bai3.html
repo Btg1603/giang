@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số đối xứng</title>
+</head>
+<body>
+    <script>
+        let number = parseInt(prompt("Nhập một số bất kỳ: "));
+        let originalNumber = number; 
+        let reversed = 0;
+
+        while (number > 0) {
+            let digit = number % 10; 
+            reversed = reversed * 10 + digit; 
+            number = Math.floor(number / 10); 
+        }
+        if (originalNumber === reversed) {
+            document.write("Số " + originalNumber + " là số đối xứng.");
+        } else {
+            document.write("Số " + originalNumber + " không phải là số đối xứng.");
+        }
+    </script>
+</body>
+</html>

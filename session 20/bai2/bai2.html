@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number=parseInt(prompt("Nhập vào số nguyên dương:"));
+        if (number<=0){
+            alert("Dữ liệu nhập không hợp lệ!");
+        }else{
+        document.write("Các số chia hết cho 5 từ 1 đến " + number + " là: ");
+        for(let i=1;i<=number;i++){
+            if (i%5==0){
+                document.write(i + ", ");
+            }else{
+                continue;
+            }
+        }
+    }
+    </script>
+</body>
+</html>
