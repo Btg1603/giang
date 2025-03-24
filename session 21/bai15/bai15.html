@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let money=parseInt(prompt("Nhập số tiền: "));
+        
+        let count_500=0;
+        let count_200=0;
+        let count_100=0;
+        let count_50=0;
+        let count_20=0;
+        let count_10=0;
+        let count_5=0;
+        let count_2=0;
+        let count_1=0;
+
+        while(money>0){
+            if(money>=500){
+                money-=500;
+                count_500++;
+            }else if(money>=200){
+                money-=200;
+                count_200++;
+            }else if(money>=100){
+                money-=100;
+                count_100++;
+            }else if(money>=50){
+                money-=50;
+                count_50++;
+            }else if(money>=20){
+                money-=20;
+                count_20++;
+            }else if(money>=10){
+                money-=10;
+                count_10++;
+            }else if(money>=5){
+                money-=5;
+                count_5++;
+            }else if(money>=2){
+                money-=2;
+                count_2++;
+            }else{
+                money-=1;
+                count_1++;
+            }
+        }
+        document.write("Số tờ 500: "+count_500+"<br>");
+        document.write("Số tờ 200: "+count_200+"<br>");
+        document.write("Số tờ 100: "+count_100+"<br>");
+        document.write("Số tờ 50: "+count_50+"<br>");
+        document.write("Số tờ 20: "+count_20+"<br>");
+        document.write("Số tờ 10: "+count_10+"<br>");
+        document.write("Số tờ 5: "+count_5+"<br>");
+        document.write("Số tờ 2: "+count_2+"<br>");
+        document.write("Số tờ 1: "+count_1+"<br>");
+        </script>
+</body>
+</html>

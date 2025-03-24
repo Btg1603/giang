@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1=parseInt(prompt("Nhập số thứ nhất: "));
+        let num2=parseInt(prompt("Nhập số thứ hai: "));
+        let num3=parseInt(prompt("Nhập số thứ ba: "));
+        let num4=parseInt(prompt("Nhập số thứ tư: "));
+        let num5=parseInt(prompt("Nhập số thứ năm: "));
+
+        let chan=0;
+        let le=0;
+        if(num1%2!=0){
+            chan++;
+        }else{
+            le++;
+        }
+        if(num2%2!=0){
+            chan++;
+        }else{
+            le++;
+        }
+        if(num3%2!=0){
+            chan++;
+        }else{
+            le++;
+        }
+        if(num4%2!=0){
+            chan++;
+        }else{
+            le++;
+        }
+        if(num5%2!=0){
+            chan++;
+        }else{
+            le++;
+        }
+        document.write("Có "+chan+" số chẵn và "+le+" số lẻ");
+    </script>
+</body>
+</html>

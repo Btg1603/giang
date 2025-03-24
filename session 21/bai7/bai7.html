@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let money=parseFloat(prompt("Nhập số tiền gửi: "));
+        let rate=parseFloat(prompt("Nhập lãi suất (%): "));
+        let time=parseFloat(prompt("Nhập số tháng gửi: "));
+
+        let total=money+(money*(rate/100)*time);
+        let interest=money*(rate/100)*time;
+
+        document.write("Số tiền gốc là "+money+"<br>");
+        document.write("Số tiền lãi là "+interest+"<br>");
+        document.write("Tổng số tiền sau "+time+" tháng là "+total);
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display:flex;
+        gap:50px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div>
+            <script>
+                document.write("a."+"<br>");
+                for(let i=10;i>0;i--){
+                    for(let j=0;j<i;j++){
+                        document.write("* ");
+                    }
+                    document.write("<br>")
+                }
+            </script>
+        </div>
+        <div>
+            <script>
+                document.write("b."+"<br>");
+                for(let i=1;i<=10;i++){
+                    for(let j=0;j<i;j++){
+                        document.write("* ");
+                    }
+                    document.write("<br>")
+                }
+            </script>
+        </div>
+        <div>
+            <script>
+                document.write("c."+"<br>");
+                for(let i=1;i<=10;i++){
+                    for(let j=0;j<10-i;j++){
+                        document.write("&nbsp;&nbsp;&nbsp");
+                    }
+                    for(let k=0;k<i;k++){
+                        document.write("* ");
+                    }
+                    document.write("<br>")
+                }
+            </script>
+        </div>
+        <div>
+            <script>
+                document.write("d."+"<br>");
+                for(let i=0;i<10;i++){
+                    for(let k=0;k<i;k++){
+                        
+                        document.write("&nbsp;&nbsp;&nbsp");
+                    }
+                    for(let j=0;j<10-i;j++){
+                        document.write("* ");
+                    }
+                    
+                    document.write("<br>")
+                }
+        
+            </script>
+        </div>
+    </div>
+    
+</body>
+</html>

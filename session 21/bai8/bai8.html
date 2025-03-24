@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for (let i = 100; i < 1000; i++) {
+            let num = i;
+            let sum = 0;
+            
+            for (let j = 0; j < 3; j++) {
+                let digit = num % 10; 
+                sum += digit ** 3;     
+                num = Math.floor(num / 10);
+            }
+
+            if (sum === i) {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+</html>
