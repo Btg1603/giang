@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input=parseInt(prompt("Nhập số cần đảo ngược:"));
+        if (!isNaN(innput)){
+            alert("Dãy không hợp lệ");
+        }else{
+            let reversedNumber=0;
+            while(input>0){
+                let digit=input%10;
+                reversedNumber=reversedNumber*10+digit;
+                input=Math.floor(input/10);
+            }
+            alert(reversedNumber);
+        }
+    </script>
+</body>
+</html>

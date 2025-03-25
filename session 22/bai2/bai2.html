@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers=[2,5,7,4,1,8,6];
+        let input=parseInt(prompt("Nhập số cần tìm:"));
+        let found=false;
+        for(let num of numbers){
+            if(num===input){
+                found=true;
+                break;
+            }
+        }
+        if(found){
+            alert("Bingo");
+        }
+    </script>
+</body>
+</html>

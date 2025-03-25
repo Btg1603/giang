@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          let arr=new Array(10);
+            for(let i=0;i<10;i++){
+                arr[i]=parseInt(prompt(`Nhập phần tử thứ ${i+1}:`));
+                if(isNaN(arr[i])){
+                    alert("giá trị không hợp lệ");
+                    break;
+                }
+            }
+            let frequency={};
+            for(let num of arr){
+                if (frequency[num] === undefined){
+                    frequency[num]=0;
+                }
+                frequency[num]++;
+            }
+
+            let maxCount=0;
+            let minNumber=Infinity;
+
+            for(let num in frequency){
+                let count=frequency[num];
+                
+                if(count>maxCount){
+                    maxCount=count;
+                    minNumber=parseInt(num);
+                }else if(count===maxCount){
+
+                    minNumber=Math.min(minNumber,parseInt(num));
+                }
+            }
+            alert(`Số xuất hiện nhiều nhất là: ${minNumber} với ${maxCount} lần`);
+    </script>
+</body>
+</html>

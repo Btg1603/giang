@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let arr = new Array(5);
+let sumle=0;
+let sumchan=0;
+
+for (let i = 0; i < 5; i++) {
+    arr[i] = parseInt(prompt(`Nhập phần tử thứ ${i+1}:`));
+    if(isNaN(arr[i])) {
+        alert("giá trị không hợp lệ");
+        break;
+    }else{
+        if(arr[i]%2==0){
+            sumchan+=arr[i];
+        }else{
+            sumle+=arr[i];
+        }
+    }
+    
+
+}
+alert(`Tổng các số lẻ là: ${sumle}`);
+alert(`Tổng các số chẵn là: ${sumchan}`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input=prompt("Nhập số bất kì:");
+        if (isNaN(Number(input))){
+            alert("Dãy không hợp lệ");
+        }else{
+            let numberArray = input.split(""); 
+            let maxNumber = numberArray[0]; 
+            
+            for (let i = 1; i < numberArray.length; i++) {
+                if (numberArray[i] > maxNumber) {
+                    maxNumber = numberArray[i];
+                }
+            }
+
+            console.log(maxNumber + " là số lớn nhất trong dãy số");
+        }
+
+    </script>
+</body>
+</html>
