@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let arr=new Array(10);
+            for(let i=0;i<10;i++){
+                arr[i]=parseInt(prompt(`Nhập phần tử thứ ${i+1}:`));
+                if(isNaN(arr[i])){
+                    alert("giá trị không hợp lệ");
+                    break;
+                }
+            }
+            let found=0;
+            for(let i=0;i<10;i++){
+                if(arr[i]>=10){
+                    document.write(arr[i]+" ");
+                    found++;
+                }
+            }
+            if(found==0){
+                alert("Không có số nào lớn hơn 10");
+            }
+    </script>
+</body>
+</html>

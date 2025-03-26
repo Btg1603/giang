@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        let choice;
+        do{
+            choice=parseInt(prompt("================== MENU ===================\n"+
+                "1. Nhập số phần tử cần nhập và giá trị các phần tử\n" +
+                "2. In ra giá trị các phần tử đang quản lí\n" +
+                "3. In ra các phần tử chẵn, tính tổng và sắp xếp giảm dần\n" +
+                "4. In ra giá trị lớn nhất, nhỏ nhất và vị trí của chúng\n" +
+                "5. In ra các số nguyên tố trong mảng và tính tổng\n" +
+                "6. Nhập một số và đếm số lần xuất hiện trong mảng\n" +
+                "7. Thêm một phần tử vào vị trí chỉ định\n" +
+                "8. Xóa phần tử theo giá trị\n" +
+                "9. Sắp xếp mảng theo thứ tự tăng dần hoặc giảm dần\n"+
+                "===========================================\n" +
+                "Lựa chọn của bạn: "
+            ));
+
+            switch(choice){
+                case 1:
+                    let n = parseInt(prompt("Nhập số phần tử cần nhập: "));
+                    arr=[];
+                    for(let i=0;i<n;i++){
+                        arr[i]=parseInt(prompt("Nhập phần tử thứ "+(i+1)+":"));
+                    }
+                    break;
+                case 2:
+                    alert("Mảng hiện tại: " + arr.join(" "));
+                    break;
+                case 3:
+                let arrchan = [];
+    let sumchan = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            arrchan.push(arr[i]); 
+            sumchan += arr[i];
+        }
+    }
+    arrchan.sort((a, b) => b - a); 
+    alert("Số chẵn: " + arrchan.join(" ") + " | Tổng: " + sumchan);
+    break;
+                case 4:
+                if (arr.length === 0) {
+                        alert("Mảng rỗng!");
+                    } else {
+                        let min = Math.min(...arr);
+                        let max = Math.max(...arr);
+                        alert(`Số nhỏ nhất: ${min}, Số lớn nhất: ${max}`);
+                    }
+                    break;
+                case 5:
+                let isPrime = num => {
+                        if (num < 2) return false;
+                        for (let j = 2; j * j <= num; j++) {
+                            if (num % j === 0) return false;
+                        }
+                        return true;
+                    };
+                    let primes = arr.filter(num => isPrime(num));
+                    let sumPrime = primes.reduce((sum, num) => sum + num, 0);
+                    alert("Số nguyên tố: " + primes.join(" ") + " | Tổng: " + sumPrime);
+                    break;
+                case 6:
+                let x = parseInt(prompt("Nhập số cần thống kê: "));
+                    let count = arr.filter(num => num === x).length;
+                    alert(`Số ${x} xuất hiện ${count} lần trong mảng.`);
+                    break;
+                case 7:
+                let value = parseInt(prompt("Nhập giá trị cần thêm: "));
+                    let position = parseInt(prompt("Nhập vị trí (0-based index): "));
+                    if (position < 0 || position > arr.length) {
+                        alert("Vị trí không hợp lệ!");
+                    } else {
+                        arr.splice(position, 0, value);
+                        alert("Mảng sau khi chèn: " + arr.join(" "));
+                    }
+                    break;
+                case 8:
+                let deleteValue = parseInt(prompt("Nhập giá trị cần xóa: "));
+    let beforeLength = arr.length;
+
+    arr = arr.filter(num => num !== deleteValue);
+
+    if (arr.length === beforeLength) {
+        alert("Không tìm thấy giá trị trong mảng!");
+    } else {
+        alert("Mảng sau khi xóa: " + arr.join(" "));
+    }
+                    break;
+                case 9:
+                let order = parseInt(prompt("Nhập 1 để sắp xếp tăng dần, nhập 2 để sắp xếp giảm dần: "));
+    
+    if (order === 1) {
+        arr.sort((a, b) => a - b);
+        alert("Mảng sau khi sắp xếp tăng dần: " + arr.join(" "));
+    } 
+    else if (order === 2) {
+        arr.sort((a, b) => b - a);
+        alert("Mảng sau khi sắp xếp giảm dần: " + arr.join(" "));
+    } 
+    else {
+        alert("Lựa chọn không hợp lệ! Vui lòng nhập 1 hoặc 2.");
+    }
+                    break;
+                case 0:
+                    alert("Thoát");
+                    break;
+                default:
+                    alert("Lựa chọn khoong hợp lệ!")
+                    break;
+            }
+
+
+        }while(choice!==0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Mảng</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        let choice;
+
+        do {
+            choice = parseInt(prompt(
+                "================== MENU ===================\n" +
+                "1. Nhập mảng\n" +
+                "2. In mảng\n" +
+                "3. In số chẵn và tổng\n" +
+                "4. Tìm min, max\n" +
+                "5. In số nguyên tố và tổng\n" +
+                "6. Đếm số xuất hiện\n" +
+                "7. Thêm phần tử vào vị trí\n" +
+                "8. Thoát\n" +
+                "===========================================\n" +
+                "Lựa chọn của bạn: "
+            ));
+
+            switch (choice) {
+                case 1:
+                    let n = parseInt(prompt("Nhập số phần tử: "));
+                    arr = [];
+                    for (let i = 0; i < n; i++) {
+                        arr.push(parseInt(prompt(`Nhập phần tử thứ ${i + 1}: `)));
+                    }
+                    break;
+
+                case 2:
+                    alert("Mảng hiện tại: " + arr.join(" "));
+                    break;
+
+                case 3:
+                    let evenNumbers = arr.filter(num => num % 2 === 0);
+                    let sumEven = evenNumbers.reduce((sum, num) => sum + num, 0);
+                    alert("Số chẵn: " + evenNumbers.join(" ") + " | Tổng: " + sumEven);
+                    break;
+
+                case 4:
+                    if (arr.length === 0) {
+                        alert("Mảng rỗng!");
+                    } else {
+                        let min = Math.min(...arr);
+                        let max = Math.max(...arr);
+                        alert(`Số nhỏ nhất: ${min}, Số lớn nhất: ${max}`);
+                    }
+                    break;
+
+                case 5:
+                    let isPrime = num => {
+                        if (num < 2) return false;
+                        for (let j = 2; j * j <= num; j++) {
+                            if (num % j === 0) return false;
+                        }
+                        return true;
+                    };
+                    let primes = arr.filter(num => isPrime(num));
+                    let sumPrime = primes.reduce((sum, num) => sum + num, 0);
+                    alert("Số nguyên tố: " + primes.join(" ") + " | Tổng: " + sumPrime);
+                    break;
+
+                case 6:
+                    let x = parseInt(prompt("Nhập số cần thống kê: "));
+                    let count = arr.filter(num => num === x).length;
+                    alert(`Số ${x} xuất hiện ${count} lần trong mảng.`);
+                    break;
+
+                case 7:
+                    let value = parseInt(prompt("Nhập giá trị cần thêm: "));
+                    let position = parseInt(prompt("Nhập vị trí (0-based index): "));
+                    if (position < 0 || position > arr.length) {
+                        alert("Vị trí không hợp lệ!");
+                    } else {
+                        arr.splice(position, 0, value);
+                        alert("Mảng sau khi chèn: " + arr.join(" "));
+                    }
+                    break;
+
+                case 8:
+                    alert("Thoát chương trình.");
+                    break;
+
+                default:
+                    alert("Lựa chọn không hợp lệ!");
+            }
+        } while (choice !== 8);
+    </script>
+</body>
+</html>

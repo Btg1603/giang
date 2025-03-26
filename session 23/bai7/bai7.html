@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=parseInt(prompt("Nhập số lượng phần tử: "));
+        
+        if(n<0){
+            alert("Số lượng phần tử không được âm");
+        }else if(n===0){
+            alert("Mảng không có phần tử");
+        }else{
+            let arr=new Array(n);
+            for(let i=0;i<n;i++){
+                arr[i]=prompt(`Nhập phần tử thứ ${i+1}:`);
+                let num = parseInt(arr[i]);
+                if(!num){
+                    alert("Giá trị nhập không hợp lệ");
+                    break;
+                }
+            }
+            let max1=arr[0];
+            for(let i=0;i<n;i++){
+                if(arr[i]>max1){
+                    max1=arr[i];
+                }
+            }
+            let max2=-Infinity;
+            for(let i=0;i<n;i++){
+                if(arr[i]>max2&&arr[i]<max1){
+                    max2=arr[i];
+                }
+            }
+            if (max2 === -Infinity) {
+            alert("Không có số lớn thứ hai");
+            } else {
+            alert("Số lớn thứ hai trong mảng là: " + max2);
+            }
+        }
+
+    </script>
+</body>
+</html>

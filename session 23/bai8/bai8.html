@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra dãy Fibonacci</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Nhập số lượng phần tử: "));
+
+        if (isNaN(n) || n <= 0) {
+            alert("Số lượng phần tử không hợp lệ");
+        } else {
+            let arr = [];
+            
+            for (let i = 0; i < n; i++) {
+                let num = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+
+                if (isNaN(num)) {
+                    alert("Giá trị nhập không hợp lệ!");
+                    break;
+                }
+
+                arr.push(num);
+            }
+
+  
+            let fib = [0, 1];
+
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+
+            
+            let isFibonacci = true;
+            for (let i = 0; i < n; i++) {
+                if (arr[i] !== fib[i]) {
+                    isFibonacci = false;
+                    break;
+                }
+            }
+
+            if (isFibonacci) {
+                alert("Dãy số bạn nhập là dãy Fibonacci.");
+            } else {
+                alert("Dãy số bạn nhập KHÔNG phải dãy Fibonacci.");
+            }
+        }
+    </script>
+</body>
+</html>

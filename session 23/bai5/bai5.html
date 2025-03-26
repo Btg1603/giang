@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=parseInt(prompt("Nhập số lượng phần tử: "));
+        
+        if(n<0){
+            alert("Số lượng phần tử không được âm");
+        }else if(n===0){
+            alert("Mảng không có phần tử");
+        }else{
+            let arr=new Array(n);
+            let sum=0;
+            foundNumber = false;
+            for(let i=0;i<n;i++){
+                arr[i]=prompt(`Nhập phần tử thứ ${i+1}:`);
+                let num = parseFloat(arr[i]);
+                if (!isNaN(num)) {
+                    sum += num;
+                    foundNumber = true;
+                }
+            }
+            if (!foundNumber) {
+                alert("Không có phần tử nào là số!");
+            } else {
+                alert("Tổng các số trong mảng: " + sum);
+            }
+        }
+    </script>
+</body>
+</html>
