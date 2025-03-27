@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = ""; // Chuỗi ban đầu
+
+while (true) {
+    let choice = parseInt(prompt(
+        "Chọn chức năng:\n" +
+        "1. Nhập chuỗi\n" +
+        "2. Hiển thị chuỗi\n" +
+        "3. Loại bỏ khoảng trắng ở đầu và cuối chuỗi\n" +
+        "4. Đảo ngược chuỗi ký tự\n" +
+        "5. Đếm số lượng từ trong chuỗi\n" +
+        "6. Tìm kiếm và thay thế ký tự\n" +
+        "7. Thoát chương trình"
+    ));
+
+    switch (choice) {
+        case 1:
+            str = propmt("Nhập chuỗi: ");
+        breakl;
+        case 2:
+            alert("Chuỗi hiện tại: "+(str?str:"Chưa có chuỗi nào được nhập"));
+        break;
+        case 3:
+            str=str.trim();
+            alert("Chuỗi sau khi loại bỏ khoảng trắng: "+str);
+        break;
+        case 4:
+            let reverseStr=str.split("").reverse().join("");
+            alert("Chuỗi sau khi đảo ngược: "+reverseStr);
+        break;
+        case 5:
+            let wordCount=str.trim().split(/\s+/).length;
+            alert("Số lượng từ trong chuỗi"+wordCount);
+        break;
+        case 6:
+            let charToFind=propmt("Nhập kí tự cần tìm: ");
+            if(str.includes(charToFind)){
+                let charToReplace=propmt("Nhập kí tự thay thế: ");
+                str = str.replaceAll(charToFind, charToReplace);
+                alert ("Chuỗi sau khi thay thế: "+str);
+            }else{
+                alert("Không tìm thấy kí tự trong chuỗi");
+            }
+        break;
+        case 7:
+            alert("Thoát chương trình");
+            break;
+        default:
+            alert("Không có lựa chọn phù hợp");
+        break;
+    }
+while(choice!==7);
+}
+    </script>
+</body>
+</html>

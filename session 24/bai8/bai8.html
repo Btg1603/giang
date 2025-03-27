@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = ""; 
+
+while (true) {
+    let choice = parseInt(prompt(
+        "Chọn chức năng:\n" +
+        "1. Nhập chuỗi ký tự\n" +
+        "2. Hiển thị chuỗi ký tự\n" +
+        "3. Tìm tất cả các từ con trùng lặp trong chuỗi và số lần xuất hiện\n" +
+        "4. Tìm các từ có độ dài lớn nhất và nhỏ nhất trong chuỗi\n" +
+        "5. Tìm số lần xuất hiện nhiều nhất của các ký tự trong chuỗi\n" +
+        "6. Chuyển đổi chuỗi ký tự thành dạng snake_case\n" +
+        "7. Thoát chương trình"
+    ));
+
+    switch (choice) {
+        case 1: 
+            str = prompt("Nhập chuỗi:");
+            break;
+
+        case 2: 
+            alert("Chuỗi hiện tại: " + (str ? str : "Chưa có chuỗi nào được nhập."));
+            break;
+
+            case 3: { 
+    if (!str.trim()) {
+        alert("Chuỗi rỗng! Hãy nhập chuỗi trước.");
+        break;
+    }
+
+    let words = str.toLowerCase().split(/\s+/); 
+    let wordCount = {}; 
+
+    
+    for (let i = 0; i < words.length; i++) {
+        let word = words[i];
+        if (wordCount[word]) {
+            wordCount[word]++; 
+        } else {
+            wordCount[word] = 1; 
+        }
+    }
+
+    let result = "Số lần xuất hiện của từng từ:\n";
+    let hasDuplicates = false;
+
+    
+    for (let word in wordCount) {
+        if (wordCount[word] > 1) {
+            result += `"${word}" xuất hiện ${wordCount[word]} lần\n`;
+            hasDuplicates = true;
+        }
+    }
+
+    if (hasDuplicates) {
+        alert(result);
+    } else {
+        alert("Không có từ nào bị trùng lặp.");
+    }
+    
+    break;
+}
+
+        case 4: { 
+            let words = str.trim().split(/\s+/);
+            if (words.length===0||str.trim()===""){
+                alert ("Không có phần tử nào trong chuỗi");
+                break;
+            }else{
+                let longest = words[0];
+                let shortest = words[0];
+                for(let i=0;i<words.length;i++){
+                    if (words[i].length>longest.length){
+                        longest=words[i];
+                    }
+                    if (words[i].length<shortest.length){
+                        shortest=words[i];
+                    }
+                }
+                alert ("Từ dài nhất: "+longest+" Từ ngắn nhất: "+shortest);
+            }
+            break;
+        }
+
+        case 5: { 
+            if(!str.trim()){
+                alert("Chuỗi rỗng! Hãy nhập chuỗi trước.");
+                break;
+            }
+            let charCount={};
+            let maxCount=0;
+
+            for (let i=0;i<str.length;i++){
+                let char = str[i];
+                if (char!==" "){
+                    if (charCount[char]){
+                        charCount[char]++;
+                    }else{
+                        charCount[char]=1;
+                    }
+                    if(charCount[char]>maxCount){
+                        maxCount=charCount[char];
+                    }
+                }
+            }
+            let mostFrequentChars = []; 
+
+            for (let char in charCount) {
+            if (charCount[char] === maxCount) {
+            mostFrequentChars.push(char);
+             }
+             }
+
+             alert(`Ký tự xuất hiện nhiều nhất: ${mostFrequentChars.join(", ")} (${maxCount} lần)`);
+            break;
+            }
+
+        case 6:
+            let snakeCaseStr = str.trim().toLowerCase().replace(/\s+/g, "_");
+            alert("Chuỗi dạng snake_case: " + snakeCaseStr);
+            break;
+
+        case 7:
+            alert("Thoát chương trình.");
+            break;
+
+        default:
+            alert("Lựa chọn không hợp lệ. Vui lòng chọn lại!");
+    }
+
+    if (choice === 7) break;
+}
+
+    </script>
+</body>
+</html>
