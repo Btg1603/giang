@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function min(arr) {
+            console.log("Giá trị nhỏ nhất: " + Math.min(...arr));
+        }
+
+        let n = parseInt(prompt("Nhập số lượng phần tử: "));
+        if (n > 0) {
+            let arr = new Array(n);
+            let isValid = true;
+
+            for (let i = 0; i < n; i++) {
+                let value = prompt("Nhập giá trị cho phần tử thứ " + (i + 1) + ": ");
+                if (isNaN(value)) {
+                    isValid = false;
+                    break;
+                }
+                arr[i] = parseInt(value);
+            }
+
+            if (isValid) {
+                min(arr);
+            } else {
+                console.log("Giá trị không hợp lệ! Vui lòng nhập số.");
+            }
+        } else {
+            console.log("Số lượng phần tử không hợp lệ!");
+        }
+    </script>
+</body>
+</html>

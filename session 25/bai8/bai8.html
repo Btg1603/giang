@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isStrongPassword(password){
+            let countUpper=0;
+            let countLower=0;
+            let countNum=0;
+            for(let i=0;i<password.length;i++){
+                let char=password[i];
+            if(char>='A'&&char<='Z'){
+                countUpper++;
+            }
+            if(char>='a'&&char<='z'){
+                countLower++;
+            }
+            if(!isNaN(char)){
+                countNum++;
+            }
+            }
+
+
+            if(password.length<8){
+                alert("Mật khẩu phải có ít nhất 8 kí tự");
+                return false;
+            }
+            if(countUpper<1){
+            alert("Mật khẩu phải có ít nhất một chữ hoa");
+            return false;
+            }
+
+            if(countLower<1){
+                alert("Có ít nhất một chữ thường");
+                return false;
+            }
+
+            if(countNum<1){
+                alert("Có ít nhất một số");
+                return false;
+            }
+            
+
+            return true;
+        } 
+        let password;
+        do{
+            password = prompt("Nhập mật khẩu: ");
+        }while(!isStrongPassword(password));
+        alert("Mật khẩu mạnh.");
+    </script>
+</body>
+</html>

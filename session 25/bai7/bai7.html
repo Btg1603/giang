@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function uperCase(str){
+            let result ="";
+            let check=true;
+            for (let i=0;i<str.length;i++){
+                if(check&&str[i]>='a'&&str[i]<='z'){
+                    result+=str[i].toUpperCase();
+                }else if(check&&str[i]>='A'&&str[i]<='Z'){
+                    result+=str[i];
+                }else{
+                    result+=str[i].toLowerCase();
+                }
+
+                if(str[i]===' '){
+                    check=true;
+                }else{
+                    check=false;
+                }
+            }
+            return result;
+        }
+
+        let input=prompt(("Nhập một chỗi bất kì: "));
+        console.log("chuỗi sau khi chuyển: "+uperCase(input));
+
+    </script>
+</body>
+</html>

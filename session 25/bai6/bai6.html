@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPalindrome (str){
+            str = str.toLowerCase();
+
+            let cleanedStr="";
+            for(let i=0;i<str.length;i++){
+                if(str[i]>='a' && str[i]<='z'||str[i]>='0'&&str[i]<='9'){
+                    cleanedStr+=str[i];
+                }
+            }
+
+            // kiểm tra đối xứng
+            let leng=cleanedStr.length;
+            for (let i=0;i<Math.floor(leng/2);i++){
+                if (cleanedStr[i]!==cleanedStr[leng-i-1]){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        let input =prompt("Nhập một chuỗi để kiểm tra: ");
+
+        if (isPalindrome(input)){
+            console.log("Là chuỗi đối xứng");
+        }
+        else{
+            console.log("Không là chuỗi đối xứng");
+        }
+
+
+    </script>
+</body>
+</html>

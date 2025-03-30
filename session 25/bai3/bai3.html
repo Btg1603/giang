@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function arrchan(arr){
+            let arrchan=[];
+            for (let i=0;i<arr.length;i++){
+                if(arr[i]%2==0){
+                    arrchan.push(arr[i]);
+                }
+            }
+            return arrchan;
+        }
+
+        let n = parseInt(prompt("Nhập số lượng phần tử: "));
+        if (n > 0) {
+            let arr = new Array(n);
+            let isValid = true;
+
+            for (let i = 0; i < n; i++) {
+                let value = prompt("Nhập giá trị cho phần tử thứ " + (i + 1) + ": ");
+                if (isNaN(value)) {
+                    isValid = false;
+                    break;
+                }
+                arr.push(value);
+            }
+
+            if (isValid) {
+                let result = arrchan(arr); 
+                console.log("Mảng số chẵn:", result);
+                }else {
+                console.log("Giá trị không hợp lệ! Vui lòng nhập số.");
+            }
+        } else {
+            console.log("Số lượng phần tử không hợp lệ!");
+        }
+    </script>
+</body>
+</html>

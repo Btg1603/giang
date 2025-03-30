@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký Email</title>
+</head>
+<body>
+    <script>
+        function checkemail(email) {
+            if (!email.includes("@")) {
+                return false;
+            }
+
+    
+            let domain = email.slice(-4); 
+            let domainVN = email.slice(-3);
+            
+            if (domain === ".com" || domainVN === ".vn") {
+                return true;
+            }
+
+            return false;
+        }
+
+        let n = parseInt(prompt("Nhập số lượng email: "));
+        let users = [];
+
+        for (let i = 0; i < n; i++) {
+            let email = prompt("Nhập email (phải có '@' và đuôi '.com' hoặc '.vn'): ").trim();
+
+            if (users.includes(email)) {
+                alert("Tài khoản đã tồn tại!");
+            } else {
+                if (checkemail(email)) {
+                    users.push(email);
+                    alert("Đăng ký thành công!");
+                } else {
+                    alert("Email không hợp lệ!");
+                }
+            }
+        }
+
+        console.log("Danh sách tài khoản:", users);
+    </script>
+</body>
+</html>
