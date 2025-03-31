@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        for (let i=0;i<10;i++){
+            let value=+prompt("Nhập phần tử thứ "+(i+1));
+            if (Number.isInteger(value)&&value>0){
+                arr.push(value);
+            }else{
+                alert("Giá trị không hợp lệ ");
+                i--;
+            }
+        }
+        if(arr.length===0){
+            alert("Mảng rỗng");
+        }else{
+        let result=arr.filter(num=>num%2==0).map(num=>num**2);
+        console.log(result);
+    }
+    
+    </script>
+</body>
+</html>

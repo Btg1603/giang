@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function formatDateArray(arr){
+            if (!Array.isArray(arr)){
+                return "Dữ liệu không hợp lệ"
+            }
+
+        
+            if (arr.length===0){
+                return "Hàm không có phần tử nào";
+            }
+
+
+            let result=arr.map(date=>{
+                let parts = date.split("-");
+                return parts.reverse().join("/");
+            }
+            )
+            return result.length > 0 ? result : "Mảng không có phần tử hợp lệ";
+            
+        }
+        
+        
+console.log(formatDateArray(["2025-03-10", "2024-12-25", "2023-07-01"]));
+
+
+console.log(formatDateArray([]));
+
+
+console.log(formatDateArray("abc"));
+
+console.log(formatDateArray(["invalid-date"]));
+    </script>
+</body>
+</html>

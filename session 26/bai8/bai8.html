@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i * i <= num; i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        let arr = [];
+
+        for (let i = 0; i < 10; i++) {
+            let value = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+            if (Number.isInteger(value) && value > 0) {
+                arr.push(value);
+            } else {
+                alert("Giá trị không hợp lệ! Hãy nhập số nguyên dương.");
+                i--;
+        }}
+
+       
+        let result = arr.filter(num => num % 2 !== 0 && isPrime(num));
+
+        console.log("Mảng ban đầu:", arr);
+        console.log("Mảng chứa số nguyên tố lẻ:", result);
+    </script>
+</body>
+</html>
