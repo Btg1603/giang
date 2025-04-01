@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function max(num){
+            if(isNaN(num)){
+                return "Dữ liệu không hợp lệ"
+            }
+            let part=num.toString().split("");
+            let result=part.sort((a,b)=>b-a).join("");
+            return parseInt(result,10);
+        }
+
+
+console.log(max(3829));  
+console.log(max(1234)); 
+console.log(max(9081));  
+console.log(max(1111)); 
+console.log(max("1h8t"));
+    </script>
+</body>
+</html>

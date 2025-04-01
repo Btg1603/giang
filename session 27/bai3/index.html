@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính hình học</title>
+</head>
+<body>
+    <script>
+        const pi = 3.14;
+        let choice;
+        do {
+            console.log("1. Tính diện tích hình tròn");
+            console.log("2. Tính chu vi hình tròn");
+            console.log("3. Tính diện tích hình chữ nhật");
+            console.log("4. Tính chu vi hình chữ nhật");
+            console.log("5. Thoát");
+
+            choice = parseInt(prompt("Nhập lựa chọn của bạn: "));
+            let r, cd, cr;
+
+            switch (choice) {
+                case 1:
+                    r = parseFloat(prompt("Nhập bán kính hình tròn"));
+                    alert("Diện tích hình tròn: " + (r * r * pi));
+                    break;
+                case 2:
+                    r = parseFloat(prompt("Nhập bán kính hình tròn"));
+                    alert("Chu vi hình tròn: " + (r * 2 * pi));
+                    break;
+                case 3:
+                    cd = parseFloat(prompt("Nhập chiều dài"));
+                    cr = parseFloat(prompt("Nhập chiều rộng"));
+                    alert("Diện tích hình chữ nhật: " + (cd * cr));
+                    break;
+                case 4:
+                    cd = parseFloat(prompt("Nhập chiều dài"));
+                    cr = parseFloat(prompt("Nhập chiều rộng"));
+                    alert("Chu vi hình chữ nhật: " + ((cd + cr) * 2));
+                    break;
+                case 5:
+                    alert("Thoát chương trình!");
+                    break;
+                default:
+                    alert("Lựa chọn không hợp lệ, vui lòng nhập lại!");
+                    break;
+            }
+        } while (choice !== 5);
+    </script>
+</body>
+</html>

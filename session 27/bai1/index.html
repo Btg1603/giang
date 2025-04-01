@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculator() {
+    while (true) {
+        console.log("Chọn một phép toán:");
+        console.log("1. Cộng hai số.");
+        console.log("2. Trừ hai số.");
+        console.log("3. Nhân hai số.");
+        console.log("4. Chia hai số.");
+        console.log("5. Thoát.");
+        
+        let choice = parseInt(prompt("Nhập lựa chọn (1-5):"));
+
+        if (choice === 5) {
+            console.log("Thoát chương trình.");
+            break;
+        }
+
+        let a = parseFloat(prompt("Nhập số thứ nhất:"));
+        let b = parseFloat(prompt("Nhập số thứ hai:"));
+
+        switch (choice) {
+            case 1:
+                console.log(`Kết quả: ${a} + ${b} = ${a + b}`);
+                break;
+            case 2:
+                console.log(`Kết quả: ${a} - ${b} = ${a - b}`);
+                break;
+            case 3:
+                console.log(`Kết quả: ${a} * ${b} = ${a * b}`);
+                break;
+            case 4:
+                if (b === 0) {
+                    console.log("Lỗi: Không thể chia cho 0.");
+                } else {
+                    console.log(`Kết quả: ${a} / ${b} = ${a / b}`);
+                }
+                break;
+            default:
+                console.log("Lựa chọn không hợp lệ! Vui lòng chọn từ 1 đến 5.");
+        }
+    }
+}
+
+calculator();
+
+    </script>
+</body>
+</html>

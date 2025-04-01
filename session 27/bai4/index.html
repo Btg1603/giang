@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function trungbinh(ar){
+        let sum=ar.reduce((acc,num)=>acc+num,0);
+        let tb=sum/(ar.length);
+        return tb;
+    }
+    
+    let  choice;
+    let ar=[];
+    do {
+    choice = parseInt(prompt(
+        "===== MENU =====\n" +
+        "1. Nhập danh sách số nguyên\n" +
+        "2. Tính trung bình các số\n" +
+        "3. Tìm số chẵn lớn nhất\n" +
+        "4. Tìm số lẻ nhỏ nhất\n" +
+        "5. Thoát\n" +
+        "==================\n" +
+        "Lựa chọn của bạn: "
+    ));
+     switch(choice){
+        case 1:
+        let value=0;
+        let  n=parseInt(prompt("Nhập số lượng số nguyên mà bạn muốn thêm vào: "));
+        if (isNaN(n)||n<=0){
+            alert("Số lượng nhập không hợp lệ");
+            break;
+        }
+        ar=[];
+        for (let i=0;i<n;i++){
+            let value=parseInt(prompt("Nhập số nguyên thứ "+(i+1)));
+            if(isNaN(value)){
+                alert("Giá trị nhập không hợp lệ!");
+                i--;
+            }else{
+                ar.push(value);
+            }
+        }
+        break;
+        case2:
+        console.log("Trung bình cộng các phần tử trong mảng là: "+trungbinh(ar));
+        break;
+        case 3:
+        let maxEven=Math.max(...ar.filter(num=>num%2==0));
+        console.log("Số chẵn lớn nhất: "(isFinite(maxEven) ? maxEven : "Không có số chẵn"));
+        break;
+        case 4:
+        let minOdd = Math.min(...ar.filter(num => num % 2 !== 0));
+        console.log("Số lẻ nhỏ nhất: " + (isFinite(minOdd) ? minOdd : "Không có số lẻ"));
+        break;
+        break;
+        case 5:
+        console.log("Thoát chương trình.");
+        break;
+        default:
+        console.log("Lựa chọn không hợp lệ");
+        break;
+     }
+}while(choice!==5)
+    </script>
+</body>
+</html>

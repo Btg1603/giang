@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function chunkArray(arr, n) {
+    if (!arr.every(item=>Number.isInteger(item))){
+        return "Giá trị không hợp lệ";
+    }
+    if (n <= 0) return []; 
+    let result = [];
+    for (let i = 0; i < arr.length; i += n) {
+        result.push(arr.slice(i, i + n));
+    }
+    
+    return result;
+}
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 2));
+console.log(chunkArray([1, 2, 3, "f"], 2));
+
+
+    </script>
+</body>
+</html>
