@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let books = [];
+        let choice;
+
+        function addBook(){
+            let id = prompt("Nhập mã sách");
+            if (books.some(book => book.id === id)) {
+                alert("Sách đã tồn tại");
+                return;
+            } else {
+                let title = prompt("Nhập tên sách");
+                let author = prompt("Nhập tên tác giả");
+                let year = prompt("Nhập năm phát hành");
+                let price = parseFloat(prompt("Nhập giá"));
+                let isAvailable = confirm("Nhập trạng thái mượn sách(OK:còn/Cancel:hết)");
+
+                let book = { id, title, author, year, price, isAvailable };
+                books.push(book);
+                console.log("Sách đã được thêm!");
+                console.table(books);
+            }
+        }
+
+        function display(){
+            if (books.length === 0) {
+                alert("Danh sách trống");
+            } else {
+                console.table(books);
+            }
+        }
+
+        function search(){
+            let key = prompt("Nhập tiêu đề sách cần tìm");
+            let nameBook = books.filter(book => book.title.toLowerCase().includes(key.toLowerCase()));
+            if (nameBook.length > 0) {
+                console.log("Sách bạn đang tìm: ");
+                console.table(nameBook);
+            } else {
+                alert("Sách không tồn tại");
+            }
+        }
+
+        function updateAvailability() {
+            let id = prompt("Nhập ID sách cần cập nhật trạng thái mượn/trả:");
+            let book = books.find(book => book.id === id);
+
+            if (book) {
+                book.isAvailable = !book.isAvailable;
+                console.log(`Đã cập nhật trạng thái sách ID ${id}: ${book.isAvailable ? "Có sẵn" : "Đã mượn"}`);
+            } else {
+                console.log("Không tìm thấy sách.");
+            }
+        }
+
+        function deleteBook() {
+            let id = prompt("Nhập ID sách cần xóa:");
+            let index = books.findIndex(book => book.id === id);
+
+            if (index !== -1) {
+                books.splice(index, 1);
+                console.log(`Đã xóa sách có ID ${id}`);
+            } else {
+                console.log("Không tìm thấy sách.");
+            }
+        }
+
+        function sortBooksByPrice() {
+            books.sort((a, b) => a.price - b.price);
+            console.log("Danh sách sách sau khi sắp xếp theo giá tăng dần:");
+            console.table(books);
+        }
+
+        do {
+            choice = +prompt(`
+            1. Thêm sách mới.
+            2. Hiển thị danh sách sách.
+            3. Tìm kiếm sách theo tiêu đề.
+            4. Cập nhật trạng thái mượn/trả sách theo id sách.
+            5. Xóa sách theo id sách ra khỏi danh sách.
+            6. Sắp xếp sách theo giá tăng dần.
+            7. Thoát.
+            `);
+
+            switch (choice) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    display();
+                    break;
+                case 3:
+                    search();
+                    break;
+                case 4:
+                    updateAvailability();
+                    break;
+                case 5:
+                    deleteBook();
+                    break;
+                case 6:
+                    sortBooksByPrice();
+                    break;
+                case 7:
+                    alert("Thoát chương trình");
+                    break;
+                default:
+                    alert("Lựa chọn không hợp lệ");
+                    break;
+            }
+        } while (choice !== 7);
+    </script>
+</body>
+</html>

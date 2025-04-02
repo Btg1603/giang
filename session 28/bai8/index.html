@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let danhSachNv=[];
+        let choice;
+
+        function addNv() {
+        let nv = {
+        id: prompt("Nhập ID nhân viên"),
+        name: prompt("Nhập tên nhân viên"),
+        position: prompt("Nhập vị trí"),
+        salary: parseFloat(prompt("Nhập tiền lương"))
+        };
+        danhSachNv.push(nv);
+        console.log("Danh sách nhân viên hiện tại:");
+        console.table(danhSachNv);
+}
+
+        function deleteNv(){
+            let idsearch=prompt("Nhập ID nhân viên cần xóa: ");
+            let index=danhSachNv.findIndex(nv => nv.id===idsearch);
+            if(index!==-1){
+                danhSachNv.splice(index,1);
+                console.log("Đã xóa nhân viên có ID: "+idsearch);
+                console.log("Danh sách nhân viên hiện tại:");
+                console.table(danhSachNv);
+            }else{
+                console.log("ID không tìm thấy");
+            }
+        }
+
+        function updateSalary(){
+            let id=prompt("Nhập ID nhân viên cần cập nhật :");
+            let nv=danhSachNv.find(nv => nv.id===id);
+            if(nv){
+                nv.salary=parseFloat(prompt("Nhập lương mới: "));
+                console.log("Đã cập nhật");
+                console.log("Danh sách nhân viên hiện tại:");
+                console.table(danhSachNv);
+
+            }else{
+                console.log("Không tìm thấy nhân viên");
+            }
+        }
+
+        function search(){
+            let namest=prompt("Nhập tên nhân viên cần tìm: ");
+            let result = danhSachNv.filter(nv=>nv.name.includes(namest));
+            if (result.length>0){
+                console.table(result);
+
+            }else{
+                console.log("Không tìm thấy nhân viên nào");
+            }
+        }
+
+        do{
+         choice=+prompt(`
+                1.Thêm nhân viên mới.
+                2.Xóa nhân viên theo id.
+                3.Cập nhật mức lương của nhân viên theo id
+                4.Tìm kiếm nhân viên theo tên.
+                5.Thoát.
+            `);
+
+            switch(choice){
+                case 1:
+                addNv();
+                break;
+                case 2:
+                deleteNv();
+                break;
+                case 3:
+                updateSalary();
+                break;
+                case 4:
+                search();
+                break;
+                case 5:
+                alert("Thoát chương trình");
+                break;
+                default:
+                console.log("Lựa chọn không hợp lệ");
+                break;
+            }
+        }while(choice!==5);
+    </script>
+</body>
+</html>
