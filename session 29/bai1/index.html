@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let danhBa=[];
+        let choice;
+        do{
+            choice=+prompt(`
+                1.Thêm đối tượng
+                2.Hiển thị danh sách danh bạ
+                3.Tìm kiếm thông tin 
+                4.Cập nhật thông tin
+                5.Xóa một đối tượng 
+                6.Thoát.
+            `);
+        
+        switch(choice){
+            case 1:
+                let Contact={
+                    id:prompt("Nhập id: "),
+                    name:prompt("Nhập tên: "),
+                    email:prompt("Nhập email: "),
+                    phone:prompt("Nhập số điện thoại: ") 
+                };
+                danhBa.push(Contact);
+                console.log("Danh sách hiện tại:");
+                console.table(danhBa);
+            break;
+            case 2:
+            if (danhBa.length === 0) {
+                alert("Danh sách trống");
+            } else {
+                console.table(danhBa);
+            }
+            break;
+            case 3:
+                let num=prompt("Nhập số điện thoại bạn muốn tìm: ");
+                if (danhBa.length === 0) {
+                alert("Danh sách trống");
+                } else {
+                    let searchByNum=danhBa.filter(value=>value.phone.includes(num));
+                    if(searchByNum.length>0){
+                        console.table(searchByNum);
+                        alert("Đã cập nhật");
+                    }else{
+                        alert("Không tìm thấy liên hệ");
+                        break;
+                    }
+                    
+                }
+
+            break;
+            case 4:
+                let idSearch=prompt("Nhập id muốn sửa: ");
+                let index=danhBa.findIndex(contact=>contact.id===idSearch);
+                if(index!==-1){
+                    danhBa[index].name=prompt("Nhập tên mới: ",danhBa[index].name);
+                    danhBa[index].email=prompt("Nhập email mới: ",danhBa[index].email);
+                    danhBa[index].phone=prompt("Nhập số điện thoại mới: ",danhBa[index].phone);
+                } else {
+                        alert(" Không tìm thấy ID này!");
+                    }
+            break;
+            case 5:
+                let idDel=prompt("Nhập ID muốn xóa: ");
+                let newDB=danhBa.filter(contact=>contact.id!==idDel);
+                if(newDB.length===danhBa.length){
+                    alert("Không tìm thấy ID này");
+                }else{
+                    danhBa=newDB;
+                    alert("xóa thành công");
+                    console.table(danhBa);
+                }
+            break;
+            case 6:
+                alert("Thoát chương trình");
+            break;
+            default:
+                alert("Lựa chọn không hợp lệ");
+            break;
+        }
+        }while(choice!==6);
+    </script>
+</body>
+</html>

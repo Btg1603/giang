@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sanPham=[];
+        let choice;
+        do{
+            choice=+prompt(`
+            1.Thêm sản phẩm vào danh sách sản phẩm.
+            2.Hiển thị tất cả sản phẩm.
+            3.Hiển thị chi tiết sản phẩm theo id.
+            4.Cập nhật thông tin sản phẩm.
+            5.Xóa sản phẩm theo id.
+            6.Lọc sản phẩm theo khoảng giá.
+            7.Thoát.
+             `);
+        
+        switch(choice){
+            case 1:
+                let newId=prompt("Nhập ID sản phẩm");
+                while(sanPham.some(product => product.id === newId)) {
+                    newId = prompt("ID đã tồn tại. Vui lòng nhập ID khác:");
+                }
+                let Contact = {
+                    id: newId,
+                    name: prompt("Nhập tên: "),
+                    price: parseFloat(prompt("Nhập giá: ")),
+                    category: prompt("Nhập danh mục: "),
+                    quantity: parseInt(prompt("Nhập số lượng: "))
+                };
+                sanPham.push(Contact);
+                console.log("Danh sách hiện tại:");
+                console.table(sanPham);
+            break;
+            case 2:
+            if (sanPham.length === 0) {
+                alert("Danh sách trống");
+            } else {
+                console.table(sanPham);
+            }
+            break;
+            case 3:
+                let ID=prompt("Nhập ID sản phẩm bạn muốn tìm: ");
+                if (sanPham.length === 0) {
+                alert("Danh sách trống");
+                } else {
+                    let searchById=sanPham.filter(value=>value.id.includes(ID));
+                    if(searchById.length>0){
+                        console.table(searchById);
+                    }else{
+                        alert("Không tìm thấy sản phẩm");
+                        break;
+                    }
+                    
+                }
+
+            break;
+            case 4:
+                let idSearch=prompt("Nhập id sản phẩm muốn sửa: ");
+                let index = sanPham.findIndex(product => product.id === idSearch);
+                if (index !== -1) {
+                    sanPham[index].name = prompt("Nhập tên mới: ", sanPham[index].name);
+                    sanPham[index].price = parseFloat(prompt("Nhập giá mới: ", sanPham[index].price));
+                    sanPham[index].category = prompt("Nhập danh mục mới: ", sanPham[index].category);
+                    sanPham[index].quantity = prompt("Nhập số lượng mới: ", sanPham[index].quantity);
+                    alert("Cập nhật thành công!");
+                    console.table(sanPham);
+                } else {
+                    alert("Không tìm thấy ID này!");
+                }
+            break;
+            case 5:
+                let idDel=prompt("Nhập ID muốn xóa: ");
+                let newSanPham=sanPham.filter(sanpham=>sanpham.id!==idDel);
+                if(newSanPham.length===sanPham.length){
+                    alert("Không tìm thấy ID này");
+                }else{
+                    sanPham=newSanPham;
+                    alert("xóa thành công");
+                    console.table(sanPham);
+                }
+            break;
+            case 6:
+                let minPrice = parseFloat(prompt("Nhập giá thấp nhất: "));
+                let maxPrice = parseFloat(prompt("Nhập giá cao nhất: "));
+                if (isNaN(minPrice) || isNaN(maxPrice)) {
+                    alert("Vui lòng nhập số hợp lệ cho khoảng giá.");
+                } else {
+                    let filteredProducts = sanPham.filter(product => product.price >= minPrice && product.price <= maxPrice);
+                    if (filteredProducts.length > 0) {
+                        console.table(filteredProducts);
+                    } else {
+                        alert("Không có sản phẩm nào trong khoảng giá này.");
+                    }
+                }
+            break;
+            case 7:
+                alert("Đang thoát chương trình");
+                break;
+            default:
+                alert("Lựa chọn không hợp lệ");
+            break;
+        }
+        }while(choice!==7);
+    </script>
+</body>
+</html>
