@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let products = [
+            { id: 1, name: "Áo thun", category: "Thời trang", price: 150000, quantity: 10 },
+            { id: 2, name: "Giày sneaker", category: "Thời trang", price: 700000, quantity: 5 },
+            { id: 3, name: "Laptop", category: "Công nghệ", price: 15000000, quantity: 3 },
+            { id: 4, name: "Điện thoại", category: "Công nghệ", price: 10000000, quantity: 4 },
+            { id: 5, name: "Bánh snack", category: "Thực phẩm", price: 20000, quantity: 20 }
+        ];
+
+        let cart = [];
+
+        function showProductsByCategory(category) {
+            let filtered = products.filter(p => p.category.toLowerCase() === category.toLowerCase());
+            if (filtered.length === 0) {
+                console.log("Không có sản phẩm nào.");
+            } else {
+                filtered.forEach(p => console.log(`${p.id}. ${p.name} - ${p.price} VNĐ - SL: ${p.quantity}`));
+            }
+        }
+
+        function buyProduct(id, quantity) {
+            let product = products.find(p => p.id === id);
+            if (!product) {
+                console.log("Không tìm thấy sản phẩm!");
+                return;
+            }
+            if (product.quantity < quantity) {
+                console.log("Không đủ hàng trong kho!");
+                return;
+            }
+            product.quantity -= quantity;
+            let itemInCart = cart.find(item => item.id === id);
+            if (itemInCart) {
+                itemInCart.quantity += quantity;
+            } else {
+                cart.push({ id: product.id, name: product.name, price: product.price, quantity });
+            }
+            console.log(`Mua thành công ${quantity} x ${product.name}`);
+        }
+
+        function sortProducts(order = "asc") {
+            let sorted = [...products].sort((a, b) =>
+                order === "asc" ? a.price - b.price : b.price - a.price
+            );
+            sorted.forEach(p => console.log(`${p.id}. ${p.name} - ${p.price} VNĐ - SL: ${p.quantity}`));
+        }
+
+        function checkout() {
+            let total = 0;
+            cart.forEach(item => {
+                let itemTotal = item.quantity * item.price;
+                total += itemTotal;
+                console.log(`${item.name} x${item.quantity} - ${item.price} VNĐ = ${itemTotal} VNĐ`);
+            });
+            console.log(`Tổng thanh toán: ${total} VNĐ`);
+        }
+
+        function showMenu() {
+            console.log(`
+1. Hiển thị sản phẩm theo danh mục
+2. Mua sản phẩm theo ID
+3. Sắp xếp sản phẩm theo giá tăng dần
+4. Sắp xếp sản phẩm theo giá giảm dần
+5. Thanh toán
+6. Thoát
+`);
+        }
+
+        function startShop() {
+            let readline = require("readline").createInterface({
+                input: process.stdin,
+                output: process.stdout,
+            });
+
+            function ask() {
+                showMenu();
+                readline.question("Chọn chức năng (1-6): ", function (choice) {
+                    switch (choice) {
+                        case "1":
+                            readline.question("Nhập tên danh mục: ", (cat) => {
+                                showProductsByCategory(cat);
+                                ask();
+                            });
+                            break;
+                        case "2":
+                            readline.question("Nhập ID sản phẩm muốn mua: ", (idStr) => {
+                                let id = parseInt(idStr);
+                                readline.question("Nhập số lượng: ", (qStr) => {
+                                    let quantity = parseInt(qStr);
+                                    buyProduct(id, quantity);
+                                    ask();
+                                });
+                            });
+                            break;
+                        case "3":
+                            sortProducts("asc");
+                            ask();
+                            break;
+                        case "4":
+                            sortProducts("desc");
+                            ask();
+                            break;
+                        case "5":
+                            checkout();
+                            ask();
+                            break;
+                        case "6":
+                            readline.close();
+                            break;
+                        default:
+                            ask();
+                    }
+                });
+            }
+
+            ask();
+        }
+
+        startShop();
+
+    </script>
+</body>
+
+</html>

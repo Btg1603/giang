@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let books = [
+            { id: 1, name: "Lập trình JavaScript", price: 120000, quantity: 10, category: "Công nghệ" },
+            { id: 2, name: "Doraemon", price: 30000, quantity: 20, category: "Truyện tranh" },
+            { id: 3, name: "Harry Potter", price: 80000, quantity: 5, category: "Tiểu thuyết" },
+            { id: 4, name: "Giải tích 12", price: 45000, quantity: 15, category: "Giáo khoa" }
+        ];
+
+        let cart = [];
+
+        function showBooksByCategory(category) {
+            let filtered = books.filter(b => b.category.toLowerCase() === category.toLowerCase());
+            if (filtered.length === 0) console.log("Không có sách trong thể loại này.");
+            else filtered.forEach(b => console.log(`${b.id}. ${b.name} - ${b.price}đ - SL: ${b.quantity}`));
+        }
+
+        function addBook(book) {
+            books.push(book);
+            console.log("Đã thêm sách mới vào kho.");
+        }
+
+        function searchBook(keyword) {
+            let result = books.filter(b =>
+                b.name.toLowerCase().includes(keyword.toLowerCase()) || b.id === Number(keyword)
+            );
+            if (result.length === 0) console.log("Không tìm thấy sách.");
+            else result.forEach(b => console.log(`${b.id}. ${b.name} - ${b.price}đ - SL: ${b.quantity}`));
+        }
+
+        function buyBook(id, quantity) {
+            let book = books.find(b => b.id === id);
+            if (!book) {
+                console.log("Không tìm thấy sách.");
+                return;
+            }
+            if (book.quantity < quantity) {
+                console.log("Không đủ số lượng trong kho.");
+                return;
+            }
+            book.quantity -= quantity;
+            let item = cart.find(i => i.id === id);
+            if (item) item.quantity += quantity;
+            else cart.push({ id: book.id, name: book.name, price: book.price, quantity });
+            console.log(`Đã mua ${quantity} cuốn ${book.name}`);
+        }
+
+        function sortBooks(order = "asc") {
+            let sorted = [...books].sort((a, b) =>
+                order === "asc" ? a.price - b.price : b.price - a.price
+            );
+            sorted.forEach(b => console.log(`${b.id}. ${b.name} - ${b.price}đ - SL: ${b.quantity}`));
+        }
+
+        function cartSummary() {
+            if (cart.length === 0) {
+                console.log("Giỏ hàng trống.");
+                return;
+            }
+            let totalBooks = cart.reduce((sum, item) => sum + item.quantity, 0);
+            let totalPrice = cart.reduce((sum, item) => sum + item.quantity * item.price, 0);
+            cart.forEach(item =>
+                console.log(`${item.name} x${item.quantity} - ${item.price}đ = ${item.quantity * item.price}đ`)
+            );
+            console.log(`Tổng số sách đã mua: ${totalBooks}`);
+            console.log(`Tổng tiền: ${totalPrice}đ`);
+        }
+
+        function totalBooksInStock() {
+            let total = books.reduce((sum, b) => sum + b.quantity, 0);
+            console.log(`Tổng số lượng sách trong kho: ${total}`);
+        }
+
+        function showMenu() {
+            console.log(`
+1. Xem sách theo thể loại
+2. Thêm sách mới vào kho
+3. Tìm kiếm sách theo tên hoặc id
+4. Mua sách
+5. Sắp xếp sách theo giá tăng dần
+6. Sắp xếp sách theo giá giảm dần
+7. Xem giỏ hàng và tổng tiền
+8. Xem tổng số lượng sách trong kho
+9. Thoát
+`);
+        }
+
+        function start() {
+            const readline = require("readline").createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
+
+            function ask() {
+                showMenu();
+                readline.question("Chọn chức năng (1-9): ", choice => {
+                    switch (choice) {
+                        case "1":
+                            readline.question("Nhập thể loại: ", cat => {
+                                showBooksByCategory(cat);
+                                ask();
+                            });
+                            break;
+                        case "2":
+                            readline.question("Tên sách: ", name => {
+                                readline.question("Giá: ", price => {
+                                    readline.question("Số lượng: ", qty => {
+                                        readline.question("Thể loại: ", cat => {
+                                            let newBook = {
+                                                id: books.length + 1,
+                                                name,
+                                                price: parseInt(price),
+                                                quantity: parseInt(qty),
+                                                category: cat
+                                            };
+                                            addBook(newBook);
+                                            ask();
+                                        });
+                                    });
+                                });
+                            });
+                            break;
+                        case "3":
+                            readline.question("Nhập tên hoặc ID: ", key => {
+                                searchBook(key);
+                                ask();
+                            });
+                            break;
+                        case "4":
+                            readline.question("ID sách muốn mua: ", id => {
+                                readline.question("Số lượng: ", qty => {
+                                    buyBook(parseInt(id), parseInt(qty));
+                                    ask();
+                                });
+                            });
+                            break;
+                        case "5":
+                            sortBooks("asc");
+                            ask();
+                            break;
+                        case "6":
+                            sortBooks("desc");
+                            ask();
+                            break;
+                        case "7":
+                            cartSummary();
+                            ask();
+                            break;
+                        case "8":
+                            totalBooksInStock();
+                            ask();
+                            break;
+                        case "9":
+                            readline.close();
+                            break;
+                        default:
+                            ask();
+                    }
+                });
+            }
+
+            ask();
+        }
+
+        start();
+
+    </script>
+</body>
+
+</html>
