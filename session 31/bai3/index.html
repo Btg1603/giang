@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display:flex;
+        }
+        .container>button{
+            width:40px;
+            height:40px;
+        }
+        .xanh{
+            background-color: green;
+        }
+        .do{
+            background-color: red;
+        }
+        .tim{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <p>change background-color</p>
+    <p>Mouse click</p>
+    <div class="container">
+        <button onclick="changeColor()" class="xanh">xanh</button>
+        <button onclick="changeColor()"  class="do">đỏ</button>
+        <button onclick="changeColor()"  class="tim">tím</button>
+    </div>
+    <script>
+        function changeColor(){
+            const body=document.body;
+            const color=event.target.className;
+            if(color==="xanh"){
+                body.style.backgroundColor="green";
+            }else if(color==="do"){
+                body.style.backgroundColor="red";
+            }else if(color==="tim"){
+                body.style.backgroundColor="purple";
+            }
+        
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        This is a text
+    </div>
+    <button id="hide">Hide text</button>
+    <button id="show">Show text</button>
+    <script>
+        const hide=document.getElementById("hide").addEventListener("click",()=>{
+            content.style.display="none";
+        });
+        const show=document.getElementById("show").addEventListener("click",()=>{
+            content.style.display="block";
+        });
+        const content=document.getElementById("content");
+    </script>
+</body>
+</html>

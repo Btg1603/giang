@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px">My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Title..." />
+      <span class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+    </ul>
+    <script>
+        const todolist = [
+          { id: 1, task: 'Hit the gym', completed: false },
+          { id: 2, task: 'Pay bills', completed: true },
+          { id: 3, task: 'Meet george', completed: false },
+          { id: 4, task: 'Buy eggs', completed: false },
+          { id: 5, task: 'Read a book', completed: false },
+          { id: 6, task: 'Organize office', completed: false }
+        ];
+      
+        const ul = document.getElementById('myUL');
+      
+        function renderList() {
+          ul.innerHTML = '';
+          todolist.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item.task;
+      
+            if (item.completed) {
+              li.classList.add('checked');
+            }
+      
+            const closeBtn = document.createElement('span');
+            closeBtn.textContent = 'X';
+            closeBtn.classList.add('close');
+            closeBtn.onclick = () => {
+              ul.removeChild(li);
+            };
+      
+            li.appendChild(closeBtn);
+      
+            li.onclick = function (e) {
+              if (e.target.tagName !== 'SPAN') {
+                li.classList.toggle('checked');
+              }
+            };
+      
+            ul.appendChild(li);
+          });
+        }
+      
+        renderList();
+      </script>
+      
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập</title>
+  <style>
+    .box {
+      width: 280px;
+      margin: 100px auto;
+      border: 1px solid #333;
+      padding: 20px;
+      font-family: sans-serif;
+    }
+    input {
+      width: 100%;
+      padding: 6px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 6px 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <label>Tên đăng nhập:</label>
+  <input type="text" id="user">
+  <label>Mật khẩu:</label>
+  <input type="password" id="pass">
+  <button onclick="checkLogin()">Đăng nhập</button>
+</div>
+
+<script>
+  function checkLogin() {
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
+
+    if (u === 'huanrose@gmail.com' && p === '123456') {
+      console.log('Đăng nhập thành công');
+    } else {
+      console.log('Đăng nhập thất bại');
+    }
+  }
+</script>
+
+</body>
+</html>
