@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Bar</title>
+  <style>
+    .container {
+      width: 300px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .progress {
+      height: 30px;
+      width: 100%;
+      background: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      background: green;
+    }
+
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>Progress Bar</h3>
+    <div class="progress">
+      <div id="bar" class="bar"></div>
+    </div>
+    <button onclick="change(10)">Tăng tiến trình</button>
+    <button onclick="change(-10)">Giảm tiến trình</button>
+    <p>+ Tiến trình càng cao thì độ đậm càng mạnh</p>
+  </div>
+
+  <script>
+    let progress = 0;
+
+    function change(value) {
+      progress += value;
+      if (progress > 100) progress = 100;
+      if (progress < 0) progress = 0;
+
+      const bar = document.getElementById("bar");
+      bar.style.width = progress + "%";
+
+      // Đậm màu theo mức tiến trình
+      let green = 100 + Math.floor(progress * 1.5); 
+      bar.style.backgroundColor = `rgb(0, ${green}, 0)`;
+    }
+  </script>
+</body>
+</html>
