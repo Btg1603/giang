@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="nhập tên môn học">
+    <button onclick="addSubject()" id="add">Thêm môn học</button>
+    <ol id="subjectList"></ol>
+    <script>
+        function addSubject(){
+            const input=document.getElementById("input").value.trim();
+            if(input===""){
+                alert("Không được để trống");
+                return;
+            }
+            // tạo một <li>
+            const li = document.createElement("li");
+            document.getElementById("subjectList").appendChild(li);//gắn li vào ol
+            li.textContent = input;//gán text cho li
+
+            const inputEl = document.getElementById("input");
+            inputEl.value = "";
+        }
+
+
+    </script>
+</body>
+</html>

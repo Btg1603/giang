@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Nhập email"><br>
+    <div id="result"></div>
+    <button onclick="validEmail()">CHECK</button>
+    <script>
+        function validEmail(){
+            const email=document.getElementById("input").value.trim();
+            const result=document.getElementById("result");
+
+            const emailValid = /^[^\s@]+@[^\s@]+\.(com|vn)$/;
+            if(emailValid.test(email)){
+                result.innerText="Email hợp lệ";
+                result.style.color="green";
+            }else{
+                result.innerText="Email không hợp lệ";
+                result.style.color="red";
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phóng to ảnh</title>
+    <style>
+        .thumbnail {
+            width: 150px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="https://i.pinimg.com/736x/81/63/78/81637861f1566bb718979b454ce94eed.jpg" alt="Ảnh nhỏ" class="thumbnail"
+        onclick="openImage(this.src)">
+
+    <div class="overlay" id="overlay" onclick="closeImage()">
+        <img id="bigImage" src="" alt="Ảnh to">
+    </div>
+
+    <script>
+        function openImage(src) {
+            const overlay = document.getElementById('overlay');
+            const bigImage = document.getElementById('bigImage');
+            bigImage.src = src;
+            overlay.style.display = 'flex';
+        }
+
+        function closeImage() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

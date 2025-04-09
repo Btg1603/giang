@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow mx-auto" style="max-width: 500px;">
+          <div class="card-body">
+            <h3 class="text-center fw-bold mb-4">To-Do List K24_PTIT</h3>
+            
+            <div class="input-group mb-3">
+
+              <input type="text" class="form-control" placeholder="Nhập nhiệm vụ..." id="taskInput">
+
+              <button class="btn btn-success" onclick="addTask()">Thêm</button>
+
+            </div>
+    
+            <ul class="list-group" id="taskList"></ul>
+          </div>
+        </div>
+      </div>
+<script>
+    function addTask(){
+        const taskInput=document.getElementById("taskInput");
+        
+        const valueInput=taskInput.value.trim();
+
+        if(valueInput===""){
+            alert("Vui lòng nhập")
+            return;
+        }
+
+
+        // Tạo li
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+            <span>${valueInput}</span>
+            <button onclick="removeTask(this)" class="btn btn-danger btn-sm">X</button>
+        `;
+        document.getElementById("taskList").appendChild(li);
+        taskInput.value = "";
+          }
+
+          function removeTask(button) {
+        const li = button.parentElement;
+        li.remove();
+          }
+</script>
+</body>
+</html>

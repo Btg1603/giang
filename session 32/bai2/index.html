@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Count()" id="dem">
+        Bấm vào tôi
+    </button>
+    <div id="log"></div>
+    <script>
+       
+        
+        let count=0;
+        function Count(){
+            count++;
+            const line = document.createElement("p");
+            line.textContent = "Số lần nhấn: " + count;
+            document.getElementById("log").appendChild(line);
+        }
+    
+    </script>
+</body>
+</html>
