@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        .password-container {
+            position: relative;
+            width: fit-content;
+        }
+
+        input[type="password"],
+        input[type="text"] {
+            padding-right: 30px;
+            font-size: 16px;
+        }
+
+        .toggle-eye {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="password-container">
+        <input type="password" id="password" placeholder="Enter your password">
+        <i class="fa-solid fa-eye toggle-eye" id="togglePassword"></i>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const toggleEye = document.getElementById("togglePassword");
+
+        toggleEye.addEventListener("click", function () {
+            const isPassword = passwordInput.type === "password";
+            passwordInput.type = isPassword ? "text" : "password";
+
+            this.classList.toggle("fa-eye");
+            this.classList.toggle("fa-eye-slash");
+        });
+    </script>
+
+</body>
+</html>
