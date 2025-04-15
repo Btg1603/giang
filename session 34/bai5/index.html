@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý nhân viên Rikkei</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh sách nhân viên Rikkei</h1>
+    
+
+    <div class="form-group">
+        <input type="text" id="employeeName" placeholder="Tên nhân viên">
+        <input type="text" id="employeePosition" placeholder="Chức vụ">
+        <button onclick="addEmployee()">Thêm nhân viên</button>
+    </div>
+
+
+    <table id="employeeTable">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody id="employeeList">
+        </tbody>
+    </table>
+
+    <script>
+ 
+        let employees = JSON.parse(localStorage.getItem('employees')) || [
+            {stt: 1, name: 'Nguyễn Văn A', position: 'Developer'},
+            {stt: 2, name: 'Trần Thị B', position: 'Designer'},
+            {stt: 3, name: 'Phạm Văn C', position: 'Project Manager'}
+        ];
+
+        renderEmployees();
+
+        function addEmployee() {
+            const nameInput = document.getElementById('employeeName');
+            const positionInput = document.getElementById('employeePosition');
+            
+            if (!nameInput.value || !positionInput.value) {
+                alert('Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+
+  
+            const newEmployee = {
+                stt: employees.length + 1,
+                name: nameInput.value,
+                position: positionInput.value
+            };
+
+
+            employees.push(newEmployee);
+            localStorage.setItem('employees', JSON.stringify(employees));
+
+     
+            nameInput.value = '';
+            positionInput.value = '';
+
+          
+            renderEmployees();
+        }
+
+        function renderEmployees() {
+            const tbody = document.getElementById('employeeList');
+            tbody.innerHTML = '';
+
+            employees.forEach(employee => {
+                const row = `
+                    <tr>
+                        <td>${employee.stt}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.position}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+    </script>
+</body>
+</html>
