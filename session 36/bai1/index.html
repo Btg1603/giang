@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chào bạn</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      height:100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #formContainer {
+      margin-top: 20px;
+      border:1px solid rgb(222, 222, 222);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      width:300px;
+      height:100px;
+      text-align: center;
+      padding:50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      background-color: blue;
+      color:white;
+      border:0px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+
+  </div>
+
+  <script>
+    const app = document.getElementById('app');
+
+    function renderGreeting(name) {
+      app.innerHTML = `
+      <div id="formContainer">
+        <h2>👋 Chào bạn, ${name}!</h2>
+        <button onclick="changeName()">Đổi tên</button>
+      </div>
+      `;
+    }
+
+    function renderForm() {
+      app.innerHTML = `
+        <div id="formContainer">
+          <input type="text" id="nameInput" placeholder="Nhập tên của bạn" />
+          <button onclick="saveName()">Lưu</button>
+          <div class="error" id="errorMsg"></div>
+        </div>
+      `;
+    }
+
+    function saveName() {
+      const name = document.getElementById('nameInput').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (name === "") {
+        errorMsg.textContent = "Vui lòng nhập tên!";
+        return;
+      }
+
+      localStorage.setItem('userName', name);
+      renderGreeting(name);
+    }
+
+    function changeName() {
+      localStorage.removeItem('userName');
+      renderForm();
+    }
+
+
+    const storedName = localStorage.getItem('userName');
+    if (storedName) {
+      renderGreeting(storedName);
+    } else {
+      renderForm();
+    }
+  </script>
+
+</body>
+</html>

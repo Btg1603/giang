@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        font-family: Arial, sans-serif;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        }
+        .container {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            max-width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .imgnoi{
+            width: 35px;
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <from>
+        <h1>Bạn thích món nào nhất? <img class="imgnoi" src="https://www.emojiall.com/images/240/microsoft/1f372.png" alt="hình ảnh"></h1>
+
+
+        <div class="container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT3kEBq3J95fCdK0Foztkj498nPHgldB5w64i12q-EmMTqxVvm0oCKKvSNZ2s6tvJ5GZY&usqp=CAU" alt="Bánh"
+                style="border-radius: 8px; width: 100px; height: 100px; object-fit: cover;">
+            <div>
+                <h3 style="margin: 0; font-size: 18px;">Bún bò Huế</h3>
+                <p style="margin: 5px 0; color: #888;"><span name="bun" style="color: red;">❤️</span> 0 lượt thích</p>
+                <button onclick="likeFood('bun')"
+                    style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Thích
+                    +1</button>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMu-RFz2Lug8XMRWQQr3bN-rLBSxTKJFkSjA&s" alt="Bánh"
+                style="border-radius: 8px; width: 100px; height: 100px; object-fit: cover;">
+            <div>
+                <h3 style="margin: 0; font-size: 18px;">Phở bò Hà Nội</h3>
+                <p style="margin: 5px 0; color: #888;"><span name="pho" style="color: red;">❤️</span> 0 lượt thích</p>
+                <button onclick="likeFood('pho')"
+                    style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Thích
+                    +1</button>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <img src="https://ik.imagekit.io/tvlk/blog/2024/10/com-tam-2.png?tr=q-70,c-at_max,w-500,h-300,dpr-2" alt="Bánh"
+                style="border-radius: 8px; width: 100px; height: 100px; object-fit: cover;">
+            <div>
+                <h3 style="margin: 0; font-size: 18px;">Cơm tấm Sài Gòn</h3>
+                <p style="margin: 5px 0; color: #888;"><span name="com" style="color: red;">❤️</span> 0 lượt thích</p>
+                <button onclick="likeFood('com')"
+                    style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Thích
+                    +1</button>
+            </div>
+        </div>
+    </from>
+
+    <script>
+        function likeFood(foodName) {
+            const foodElement = document.querySelector(`span[name="${foodName}"]`);
+            const likeCount = parseInt(foodElement.nextSibling.textContent) || 0;
+            foodElement.nextSibling.textContent = ` ${likeCount + 1} lượt thích`;
+        }
+    </script>
+</body>
+
+</html>

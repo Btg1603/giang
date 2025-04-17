@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            margin-bottom: 40px;
+            gap: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            max-width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button{
+            width:60px;
+            height:40px;
+            border:0px;
+            border-radius: 5px;
+            margin-right: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chọn màu nền bạn yêu thích</h1>
+        <button style="background-color: rgb(243, 62, 62);color:white;">Đỏ</button>
+        <button style="background-color: rgb(0, 123, 255);color:white;">Xanh</button>
+        <button style="background-color: rgb(255, 221, 0);color:rgb(3, 0, 0);">Vàng</button>
+        <button style="background-color: rgba(141, 0, 157, 0.593);color:white;">Tím</button>
+    </div>
+    <script>
+        const savedColor = localStorage.getItem('colorBackground');
+        if (savedColor) {
+            document.body.style.backgroundColor = savedColor;
+        }
+
+        
+        function changeBackgroundColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        const buttons = document.querySelectorAll('.container button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const color = button.style.backgroundColor;
+                changeBackgroundColor(color);
+                localStorage.setItem('colorBackground', color);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(to right, #6dd5ed, #2193b0);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+    
+        form {
+          background: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          width: 300px;
+          text-align: center;
+        }
+    
+        h2 {
+          margin-bottom: 20px;
+          color: #333;
+        }
+    
+        input[type="text"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          margin: 8px 0;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+        }
+    
+        label {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+          font-size: 14px;
+        }
+    
+        button {
+          background-color: #2193b0;
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          width: 100%;
+          font-size: 16px;
+          margin-top: 10px;
+        }
+    
+        button:hover {
+          background-color: #186d85;
+        }
+    
+        p {
+          margin-top: 15px;
+          font-size: 14px;
+        }
+    
+        a {
+          color: #2193b0;
+          text-decoration: none;
+        }
+    
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+<body>
+    <h2>Đăng Nhập</h2>
+    <form onsubmit="DN(event)" id="loginForm">
+        <input type="text" id="username" placeholder="Tên người dùng" required><br>
+        <input type="password" id="password" placeholder="Mật khẩu" required><br>
+        <label><input type="checkbox" id="rememberMe">Duy trì đăng nhập</label><br>
+        <button  type="submit">Đăng Nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+
+
+    <script>
+        const loggedInUser=localStorage.getItem("loggedInUser");
+        if(loggedInUser){
+            window.location.href="home.html"
+        }
+
+        function DN(event){
+            event.preventDefault();
+            const username=event.target.username.value;
+            const password=event.target.password.value;
+            const users=JSON.parse(localStorage.getItem("users")||"{}");
+            if(users[username]===password && users[username]){
+                const remember = document.getElementById("rememberMe").checked;
+                if (remember) {
+                    localStorage.setItem("loggedInUser", username);
+                } else {
+                    sessionStorage.setItem("loggedInUser", username);
+                }
+                window.location.href="home.html";
+            }else{
+                alert("Tài khoản hoặc mật khẩu không đúng");
+            }
+
+        }
+    </script>
+</body>
+</html>
